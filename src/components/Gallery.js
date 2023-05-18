@@ -8,6 +8,7 @@ import DogCards from './DogCards.js';
 function Gallery() {
 
     const [dogs, setDogs] = useState([]);
+    const [param, setParam] = useState("1");
 
     useEffect(() => {
 
@@ -15,7 +16,7 @@ function Gallery() {
             headers: { 'X-Api-Key': 'pyRsnD63J96idmPN3crKQQ==l3yrXFvEvPGLif1K' },
             contentType: "application/json",
             params: {
-                energy: 3
+                energy: param
             }
         })
             .then((apiData) => {
@@ -34,11 +35,16 @@ function Gallery() {
         //         console.log(apiData);
         //         console.log(apiData.data);
         //     })
-    }, []);
+    }, [param]);
+
+    const selectParam = (event, param) => {
+        event.preventDefault();
+        setParam(param);
+    }
 
     return (
         <section className="Gallery">
-            <Form />
+            <Form handleSubmit={selectParam} />
 
             <ul className="GalleryResults">
                 { dogs.map((dogObj) => {

@@ -1,14 +1,29 @@
 import '../styles/Form.css';
+import { useState } from 'react';
 
-function Form() {
+function Form({handleSubmit}) {
+
+    const [energy, setEnergy] = useState("1");
+
+    const handleChange = (event) => {
+        setEnergy(event.target.value);
+    }
+
     return (
-        <form className="Form">
+        <form className="Form" onSubmit={ (event) => { handleSubmit(event, energy) } }>
             {/* <input type="checkbox" name="energy" value="off" />
                 <label for="name">Energy Level</label> */}
 
             <fieldset name="energyRange">
-                <label>Energy levels:</label>
-                <input type="range" step="1" min="1" max="5" value="1" />
+                <label htmlfor="energy">Energy:</label>
+                <input
+                    type="range"
+                    id="energy"
+                    name="energy"
+                    step="1" min="1" max="5"
+                    onChange={handleChange}
+                    value={energy}
+                />
             </fieldset>
 
             <button type="Submit">Submit</button>
