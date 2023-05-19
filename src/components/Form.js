@@ -3,26 +3,80 @@ import { useState } from 'react';
 
 function Form({handleSubmit}) {
 
-    const [energy, setEnergy] = useState("1");
+    const [energyValue, setEnergyValue] = useState("3");
+    const [energyCheck, setEnergyCheck] = useState(true);
 
-    const handleChange = (event) => {
-        setEnergy(event.target.value);
+    const handleEnergyChange = (event) => {
+        setEnergyValue(event.target.value);
+    }
+
+    const handleEnergyCheck = (event) => {
+        if (event.target.checked) {
+            setEnergyValue(event.target.value);
+            setEnergyCheck(false);
+        } else {
+            setEnergyCheck(true);
+        }
+    }
+
+    const [shedValue, setShedValue] = useState("3");
+    const [shedCheck, setShedCheck] = useState(true);
+
+    const handleShedChange = (event) => {
+        setShedValue(event.target.value);
+    }
+
+    const handleShedCheck = (event) => {
+        if (event.target.checked) {
+            setShedValue(event.target.value);
+            setShedCheck(false);
+        } else {
+            setShedCheck(true);
+        }
     }
 
     return (
-        <form className="Form" onSubmit={ (event) => { handleSubmit(event, energy) } }>
-            {/* <input type="checkbox" name="energy" value="off" />
-                <label for="name">Energy Level</label> */}
+        <form className="Form" onSubmit={ (event) => { handleSubmit(event, (energyValue, shedValue)) } }>
+        {/* <form className="Form"> */}
+            {/* Energy */}
+            <fieldset>
+                <input
+                    type="checkbox"
+                    name="energyCheck"
+                    id="energyCheck"
+                    value="null"
+                    onClick={handleEnergyCheck}
+                />
+                <label htmlFor="energyValue">Energy:</label>
+                    <input
+                        type="range"
+                        id="energyValue"
+                        name="energyValue"
+                        step="1" min="1" max="5"
+                        onChange={handleEnergyChange}
+                        value={energyValue}
+                        disabled={energyCheck}
+                    />
+            </fieldset>
 
-            <fieldset name="energyRange">
-                <label htmlfor="energy">Energy:</label>
+            {/* Shedding */}
+            <fieldset>
+                <input
+                    type="checkbox"
+                    name="shedCheck"
+                    id="shedCheck"
+                    value="null"
+                    onClick={handleShedCheck}
+                />
+                <label htmlFor="shedValue">Shedding:</label>
                 <input
                     type="range"
-                    id="energy"
-                    name="energy"
+                    id="shedValue"
+                    name="shedValue"
                     step="1" min="1" max="5"
-                    onChange={handleChange}
-                    value={energy}
+                    onChange={handleShedChange}
+                    value={shedValue}
+                    disabled={shedCheck}
                 />
             </fieldset>
 
@@ -33,7 +87,3 @@ function Form({handleSubmit}) {
 }
 
 export default Form;
-
-{ /* https://codepen.io/daidensacha/pen/OJWxmvP
-The disabled attribute can be set to keep a user from using the fields until some other condition has been met(like
-selecting a checkbox, etc.).Then, a JavaScript could remove the disabled value, and make the fieldset usable again */}

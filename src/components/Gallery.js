@@ -8,7 +8,16 @@ import DogCards from './DogCards.js';
 function Gallery() {
 
     const [dogs, setDogs] = useState([]);
-    const [param, setParam] = useState("1");
+
+    const [energyParam, setEnergyParam] = useState("3");
+    const [shedParam, setShedParam] = useState("3");
+
+    const updateParams = (event, energyValue, shedValue) => {
+        event.preventDefault();
+        setEnergyParam(energyValue);
+        setShedParam(shedValue);
+        ;
+    }
 
     useEffect(() => {
 
@@ -16,35 +25,23 @@ function Gallery() {
             headers: { 'X-Api-Key': 'pyRsnD63J96idmPN3crKQQ==l3yrXFvEvPGLif1K' },
             contentType: "application/json",
             params: {
-                energy: param
+                energy: energyParam,
+                shedding: shedParam
             }
         })
             .then((apiData) => {
-                // console.log(apiData.data);
-                setDogs(apiData.data);
+                if (apiData.date === []) (
+                    console.log("Please be less picky and try again!")
+                )
+                else (
+                    setDogs(apiData.data)
+                )
             })
-
-        // axios("https://api.api-ninjas.com/v1/cats", {
-        //     headers: { 'X-Api-Key': 'pyRsnD63J96idmPN3crKQQ==l3yrXFvEvPGLif1K' },
-        //     contentType: "application/json",
-        //     params: {
-        //         shedding: 1
-        //     }
-        // })
-        //     .then((apiData) => {
-        //         console.log(apiData);
-        //         console.log(apiData.data);
-        //     })
-    }, [param]);
-
-    const selectParam = (event, param) => {
-        event.preventDefault();
-        setParam(param);
-    }
+    }, [energyParam, shedParam]);
 
     return (
         <section className="Gallery">
-            <Form handleSubmit={selectParam} />
+            <Form handleSubmit={updateParams} />
 
             <ul className="GalleryResults">
                 { dogs.map((dogObj) => {
