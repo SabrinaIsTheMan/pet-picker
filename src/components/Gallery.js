@@ -9,14 +9,27 @@ function Gallery() {
 
     const [dogs, setDogs] = useState([]);
 
-    const [energyParam, setEnergyParam] = useState("3");
-    const [shedParam, setShedParam] = useState("3");
+    const [barkParam, setBarkParam] = useState(3);
+    const [energyParam, setEnergyParam] = useState(3);
+    const [shedParam, setShedParam] = useState(3);
+    const [trainParam, setTrainParam] = useState(3);
 
-    const updateParams = (event, energyValue, shedValue) => {
+    const updateParams = (event, [barkValue, energyValue, shedValue, trainValue]) => {
         event.preventDefault();
-        setEnergyParam(energyValue);
-        setShedParam(shedValue);
-        ;
+
+        console.log(`values: bark ${barkValue}, e ${energyValue}, shed ${shedValue}, train ${trainValue}`);
+
+        if (barkValue === null && energyValue === null && shedValue === null && trainValue === null) {
+            alert("Please pick at least one trait!")
+        }
+        else {
+            setBarkParam(barkValue);
+            setEnergyParam(energyValue);
+            setShedParam(shedValue);
+            setTrainParam(trainValue);
+        }
+
+        console.log(`params: bark ${barkParam}, e ${energyParam}, shed ${shedParam}, train ${trainParam}`)
     }
 
     useEffect(() => {
@@ -25,19 +38,22 @@ function Gallery() {
             headers: { 'X-Api-Key': 'pyRsnD63J96idmPN3crKQQ==l3yrXFvEvPGLif1K' },
             contentType: "application/json",
             params: {
+                barking: barkParam,
                 energy: energyParam,
-                shedding: shedParam
+                shedding: shedParam,
+                trainability: trainParam
             }
         })
             .then((apiData) => {
-                if (apiData.date === []) (
-                    console.log("Please be less picky and try again!")
-                )
-                else (
-                    setDogs(apiData.data)
-                )
+                if (apiData.data.length === 0) {
+                    alert("Please be less picky and try again!");
+                }
+                else {
+                    console.log(apiData.data)
+                    setDogs(apiData.data);
+                }
             })
-    }, [energyParam, shedParam]);
+    }, [barkParam, energyParam, shedParam, trainParam]);
 
     return (
         <section className="Gallery">
