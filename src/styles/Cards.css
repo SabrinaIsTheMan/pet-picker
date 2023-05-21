@@ -69,7 +69,10 @@
 }
 
 .customModal {
-    background: #B9CBC6;
-    max-width: 100vw;
+    background-color: #B9CBC6;
+    border-radius: 20px;
+    border: 2px solid #84A59D;
+    max-width: 80vw;
     width: 100%;
+    height: auto;
 }

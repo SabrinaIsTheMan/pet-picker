@@ -1,5 +1,6 @@
 import Header from './Header.js';
 import '../styles/Home.css';
+import '../styles/Buttons.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCat, faDog } from '@fortawesome/free-solid-svg-icons';
 
@@ -13,7 +14,7 @@ function Home() {
 
             <div>
                 <button
-                    className="button dogButton"
+                    className="selectionButton dogButton"
                     aria-label='Dog'
                     value='dog'
                 >
@@ -21,7 +22,7 @@ function Home() {
                 </button>
 
                 <button
-                    className="button catButton"
+                    className="selectionButton catButton"
                     aria-label='Cat'
                     value='cat'
                 >

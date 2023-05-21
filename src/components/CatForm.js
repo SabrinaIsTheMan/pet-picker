@@ -1,5 +1,5 @@
 import '../styles/Form.css';
-import '../styles/Home.css';
+import '../styles/Buttons.css';
 import { useState } from 'react';
 
 function CatForm({ handleSubmit }) {
@@ -57,7 +57,7 @@ function CatForm({ handleSubmit }) {
 
     return (
         <form className="form catForm" onSubmit={(event) => { handleSubmit(event, [smartValue, playValue, shedValue]) }}>
-            <legend>Please select as least one trait to filter cat breeds by:</legend>
+            <legend>Filter cat breeds by:</legend>
 
             {/* Intelligence */}
             <fieldset>
@@ -122,7 +122,9 @@ function CatForm({ handleSubmit }) {
                 />
             </fieldset>
 
-            <button type="Submit" className="catButton">Submit</button>
+            <div>
+                <button type="Submit" className="catButton">Submit</button>
+            </div>
         </form>
     )
 }

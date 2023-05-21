@@ -42,7 +42,6 @@ function DogGallery() {
                 energy: energyParam,
                 shedding: shedParam,
                 trainability: trainParam,
-                offset: null
             }
         })
             .then((apiData) => {
