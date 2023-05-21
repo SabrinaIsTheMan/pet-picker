@@ -1,0 +1,25 @@
+.form {
+    background: #B9CBC6;
+    width: max-content;
+    text-align: center;
+    padding: 40px;
+    border-radius: 20px;
+    border: 2px solid #84A59D;
+}
+
+.form fieldset {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px;
+    border-radius: 10px;
+    border: solid transparent;
+    position: relative;
+}
+

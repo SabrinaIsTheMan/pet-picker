@@ -1,0 +1,75 @@
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 20vw;
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.dogCards {
+    background: #F7C677;
+}
+
+.catCards {
+    background: #F8BCBB;
+}
+
+.cards h3 {
+    margin: 0;
+}
+
+.imgContainer {
+    width: 18vw;
+    height: 18vw;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.imgContainer img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.cardsFacts {
+    display: grid;
+    grid-template-rows: 0.5fr 0.5fr;
+    grid-template-columns: 0.5fr 0.5fr;
+    align-items: start;
+}
+
+.cardsFactsTitle{
+    text-align: center;
+}
+
+.cardsFactsTitle h3, h6{
+    line-height: 0;
+}
+
+.cardsFactsGroup p {
+    line-height: 25%;
+}
+
+.cardsFacts h4, .cardsFacts h5 {
+    text-decoration: underline;
+    text-align: center;
+}
+
+.cards span {
+    font-weight: 700;
+}
+
+.customOverlay {
+    background: rgba(35, 31, 32, 0.7);
+}
+
+.customModal {
+    background: #B9CBC6;
+    max-width: 100vw;
+    width: 100%;
+}

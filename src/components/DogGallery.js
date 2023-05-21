@@ -2,10 +2,10 @@ import '../styles/Gallery.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import Form from './Form.js';
+import DogForm from './DogForm.js';
 import DogCards from './DogCards.js';
 
-function Gallery() {
+function DogGallery() {
 
     const [dogs, setDogs] = useState([]);
 
@@ -17,7 +17,7 @@ function Gallery() {
     const updateParams = (event, [barkValue, energyValue, shedValue, trainValue]) => {
         event.preventDefault();
 
-        console.log(`values: bark ${barkValue}, e ${energyValue}, shed ${shedValue}, train ${trainValue}`);
+        // console.log(`values: bark ${barkValue}, e ${energyValue}, shed ${shedValue}, train ${trainValue}`)
 
         if (barkValue === null && energyValue === null && shedValue === null && trainValue === null) {
             alert("Please pick at least one trait!")
@@ -29,7 +29,7 @@ function Gallery() {
             setTrainParam(trainValue);
         }
 
-        console.log(`params: bark ${barkParam}, e ${energyParam}, shed ${shedParam}, train ${trainParam}`)
+        // console.log(`params: bark ${barkParam}, e ${energyParam}, shed ${shedParam}, train ${trainParam}`)
     }
 
     useEffect(() => {
@@ -41,7 +41,8 @@ function Gallery() {
                 barking: barkParam,
                 energy: energyParam,
                 shedding: shedParam,
-                trainability: trainParam
+                trainability: trainParam,
+                offset: null
             }
         })
             .then((apiData) => {
@@ -56,10 +57,10 @@ function Gallery() {
     }, [barkParam, energyParam, shedParam, trainParam]);
 
     return (
-        <section className="Gallery">
-            <Form handleSubmit={updateParams} />
+        <section className="gallery">
+            <DogForm handleSubmit={updateParams} />
 
-            <ul className="GalleryResults">
+            <ul className="galleryResults">
                 { dogs.map((dogObj) => {
                     return <DogCards
                         key={dogObj.name}
@@ -104,4 +105,4 @@ function Gallery() {
     )
 }
 
-export default Gallery;
+export default DogGallery;

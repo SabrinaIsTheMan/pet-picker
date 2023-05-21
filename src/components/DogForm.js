@@ -1,7 +1,8 @@
 import '../styles/Form.css';
+import '../styles/Home.css';
 import { useState } from 'react';
 
-function Form({handleSubmit}) {
+function DogForm({handleSubmit}) {
 
     const [barkValue, setBarkValue] = useState(3);
     const [barkCheck, setBarkCheck] = useState(true);
@@ -72,7 +73,7 @@ function Form({handleSubmit}) {
     }
 
     return (
-        <form className="Form" onSubmit={ (event) => { handleSubmit(event, [barkValue, energyValue, shedValue, trainValue]) } }>
+        <form className="form dogForm" onSubmit={ (event) => { handleSubmit(event, [barkValue, energyValue, shedValue, trainValue]) } }>
             <legend>Please select as least one trait to filter dog breeds by:</legend>
 
             {/* Barking */}
@@ -159,9 +160,9 @@ function Form({handleSubmit}) {
                 />
             </fieldset>
 
-            <button type="Submit">Submit</button>
+            <button type="Submit" className="dogButton">Submit</button>
         </form>
     )
 }
 
-export default Form;
+export default DogForm;

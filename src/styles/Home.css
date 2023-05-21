@@ -1,0 +1,33 @@
+.home {
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button{
+    padding: 20px 40px;
+    margin: 20px;
+    border-radius: 20px;
+    border: solid transparent;
+    width: 100%;
+    height: 20vh;
+}
+.dogButton {
+    background: #F7C677;
+    border-bottom: solid 4px #F3A932;
+}
+
+.catButton {
+    background: #F8BCBB;
+    border-bottom: solid 4px #F28482;
+}
+
+/* push button effect */
+.button:active, button:active {
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    border-bottom: none;
+}
