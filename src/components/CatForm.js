@@ -56,76 +56,78 @@ function CatForm({ handleSubmit }) {
     }
 
     return (
-        <form className="form catForm" onSubmit={(event) => { handleSubmit(event, [smartValue, playValue, shedValue]) }}>
-            <legend>Filter cat breeds by:</legend>
+        <div className='wrapper'>
+            <form className="form catForm" onSubmit={(event) => { handleSubmit(event, [smartValue, playValue, shedValue]) }}>
+                <legend>Filter cat breeds by:</legend>
 
-            {/* Intelligence */}
-            <fieldset>
-                <input
-                    type="checkbox"
-                    name="smartCheck"
-                    id="smartCheck"
-                    checked={smartCheck}
-                    onChange={handleSmartCheck}
-                />
-                <label htmlFor="smartValue">Intelligence:</label>
-                <input
-                    type="range"
-                    id="smartValue"
-                    name="smartValue"
-                    step="1" min="1" max="5"
-                    onChange={handleSmartChange}
-                    value={smartValue}
-                    disabled={!smartCheck}
-                />
-            </fieldset>
+                {/* Intelligence */}
+                <fieldset>
+                    <input
+                        type="checkbox"
+                        name="smartCheck"
+                        id="smartCheck"
+                        checked={smartCheck}
+                        onChange={handleSmartCheck}
+                    />
+                    <label htmlFor="smartValue">Intelligence:</label>
+                    <input
+                        type="range"
+                        id="smartValue"
+                        name="smartValue"
+                        step="1" min="1" max="5"
+                        onChange={handleSmartChange}
+                        value={smartValue}
+                        disabled={!smartCheck}
+                    />
+                </fieldset>
 
-            {/* Playfulness */}
-            <fieldset>
-                <input
-                    type="checkbox"
-                    name="playCheck"
-                    id="playCheck"
-                    checked={playCheck}
-                    onChange={handlePlayCheck}
-                />
-                <label htmlFor="playValue">Playfulness:</label>
-                <input
-                    type="range"
-                    id="playValue"
-                    name="playValue"
-                    step="1" min="1" max="5"
-                    onChange={handlePlayChange}
-                    value={playValue}
-                    disabled={!playCheck}
-                />
-            </fieldset>
+                {/* Playfulness */}
+                <fieldset>
+                    <input
+                        type="checkbox"
+                        name="playCheck"
+                        id="playCheck"
+                        checked={playCheck}
+                        onChange={handlePlayCheck}
+                    />
+                    <label htmlFor="playValue">Playfulness:</label>
+                    <input
+                        type="range"
+                        id="playValue"
+                        name="playValue"
+                        step="1" min="1" max="5"
+                        onChange={handlePlayChange}
+                        value={playValue}
+                        disabled={!playCheck}
+                    />
+                </fieldset>
 
-            {/* Shedding */}
-            <fieldset>
-                <input
-                    type="checkbox"
-                    name="shedCheck"
-                    id="shedCheck"
-                    checked={shedCheck}
-                    onChange={handleShedCheck}
-                />
-                <label htmlFor="shedValue">Shedding:</label>
-                <input
-                    type="range"
-                    id="shedValue"
-                    name="shedValue"
-                    step="1" min="1" max="5"
-                    onChange={handleShedChange}
-                    value={shedValue}
-                    disabled={!shedCheck}
-                />
-            </fieldset>
+                {/* Shedding */}
+                <fieldset>
+                    <input
+                        type="checkbox"
+                        name="shedCheck"
+                        id="shedCheck"
+                        checked={shedCheck}
+                        onChange={handleShedCheck}
+                    />
+                    <label htmlFor="shedValue">Shedding:</label>
+                    <input
+                        type="range"
+                        id="shedValue"
+                        name="shedValue"
+                        step="1" min="1" max="5"
+                        onChange={handleShedChange}
+                        value={shedValue}
+                        disabled={!shedCheck}
+                    />
+                </fieldset>
 
-            <div>
-                <button type="Submit" className="catButton">Submit</button>
-            </div>
-        </form>
+                <div>
+                    <button type="Submit" className="catButton">Submit</button>
+                </div>
+            </form>
+        </div>
     )
 }
 

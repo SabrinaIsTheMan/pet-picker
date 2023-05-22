@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/Header.js';
-import Home from './components/Home.js'
+import Selection from './components/Selection.js'
 import HomeButton from './components/HomeButton.js';
 import DogGallery from './components/DogGallery.js';
 import CatGallery from './components/CatGallery.js';
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* <Home /> */}
+      {/* <Selection /> */}
       {/* <HomeButton /> */}
       <DogGallery />
       <Footer />

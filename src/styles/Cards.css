@@ -1,11 +1,7 @@
-.cards {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.cards{
     cursor: pointer;
     width: 20vw;
-    height: auto;
+    height: 100%;
     padding: 20px;
     border-radius: 20px;
 }
@@ -18,15 +14,32 @@
     background: #F8BCBB;
 }
 
-.cards h3 {
+.cards h2{
+    font-size: clamp(1rem, 0.8947rem + 0.5263vw, 1.25rem);
+}
+
+.cardFace {
+    display: grid;
+    grid-template-rows: 10% 90%;
+    place-items: center;
+    height: 100%;
+    width: auto;
+}
+
+.breedName {
+    width: 100%;
+    height: 100%;
+    padding: 0;
     margin: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .imgContainer {
-    width: 18vw;
-    height: 18vw;
-    border-radius: 20px;
-    padding: 20px;
+    width: auto;
+    height: calc(20vw - 40px);
 }
 
 .imgContainer img{
@@ -36,43 +49,100 @@
     border-radius: 20px;
 }
 
+/* MODAL CONTENT STYLES */
 .cardsFacts {
     display: grid;
     grid-template-rows: 0.5fr 0.5fr;
     grid-template-columns: 0.5fr 0.5fr;
     align-items: start;
+    gap: 5px;
+    width: 100%;
 }
 
 .cardsFactsTitle{
     text-align: center;
 }
 
-.cardsFactsTitle h3, h6{
-    line-height: 0;
+.cardsFactsTitle h3 {
+    font-size: clamp(0.9rem, 0.7316rem + 0.8421vw, 1.3rem);
+}
+
+.cardsFactsTitle p {
+    padding: 0;
+    margin: 0;
+    line-height: 0%;
+}
+
+.cardsFactsGroup h4 {
+    font-size: clamp(0.8rem, 0.6737rem + 0.6316vw, 1.1rem);
+    text-decoration: underline;
+    text-align: center;
 }
 
 .cardsFactsGroup p {
     line-height: 25%;
 }
 
-.cardsFacts h4, .cardsFacts h5 {
-    text-decoration: underline;
-    text-align: center;
-}
-
-.cards span {
+.cardsFactsGroup span {
     font-weight: 700;
+    font-size: 95%;
 }
 
+.cardsFactsGroup {
+    height: 100%;
+}
+
+/* MODAL HOOK STYLES */
 .customOverlay {
     background: rgba(35, 31, 32, 0.7);
 }
 
 .customModal {
-    background-color: #B9CBC6;
+    background: #b2dbbf;
     border-radius: 20px;
     border: 2px solid #84A59D;
-    max-width: 80vw;
-    width: 100%;
+    width: 80vw;
     height: auto;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1000px) {
+    .cards{
+        width: 30vw;
+    }
+
+    .imgContainer {
+        height: calc(30vw - 40px);
+    }
+}
+
+@media (max-width: 620px) {
+    .cards {
+        width: 40vw;
+    }
+
+    .imgContainer {
+        height: calc(40vw - 40px);
+    }
+
+    .cardsFacts {
+        grid-template-rows: repeat(4, 0.25fr);
+        grid-template-columns: 1fr;
+        place-items: center;
+    }
+
+    .cardsFactsGroup {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 450px) {
+    .cards {
+        width: 80vw;
+    }
+
+    .imgContainer {
+        height: calc(80vw - 40px);
+    }
 }

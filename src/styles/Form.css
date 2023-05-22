@@ -1,7 +1,7 @@
 .form {
     background: #B9CBC6;
-    width: auto;
-    height: 40vh;
+    width: 30vw;
+    height: auto;
     text-align: center;
     padding: 10px 20px;
     border-radius: 20px;
@@ -19,18 +19,35 @@
     background-color: transparent;
     border: none;
     box-sizing: border-box;
-    padding: 0 20px;
-    display: grid;
+
+    padding: 2.5% 0;
     width: 100%;
     height: auto;
-    grid-template-columns: 5% 30% auto;
-    place-content: stretch;
-    column-gap: 10px;
+
+    display: grid;
+    grid-template-columns: 8% 45% auto;
+    place-content: center;
     align-items: center;
 }
 
-.form label, .form legend {
+.form label{
     font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.form legend {
+    font-size: clamp(0.8rem, 0.7158rem + 0.4211vw, 1rem);
+    font-style: italic;
+}
+
+.form input[type="checkbox"] {
+    width: clamp(0.8rem, 0.7158rem + 0.4211vw, 1rem);
+    height: clamp(0.8rem, 0.7158rem + 0.4211vw, 1rem);
+}
+
+.form input[type="range"] {
+    height: clamp(0.8rem, 0.7158rem + 0.4211vw, 1rem);
+    width: 100%;
 }
 
 button {
@@ -41,4 +58,50 @@ button {
 
 .form div {
     height: 10%;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1200px) {
+    .form {
+        width: 40vw;
+    }
+}
+
+@media (max-width: 915px) {
+    .form {
+        width: 50vw;
+    }
+}
+
+@media (max-width: 750px) {
+    .form {
+        width: 60vw;
+    }
+
+    .form fieldset {
+        padding: 5% 0;
+    }
+}
+
+@media (max-width: 650px) {
+    .form {
+        width: 70vw;
+    }
+}
+
+@media (max-width: 570px) {
+    .form {
+        width: 80vw;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .form {
+        width: 90vw;
+    }
+
+    .form fieldset {
+        padding: 8% 0;
+    }
 }

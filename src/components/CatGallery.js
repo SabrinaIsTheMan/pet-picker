@@ -55,37 +55,40 @@ function CatGallery() {
 
     return (
         <section className="gallery">
-            <CatForm handleSubmit={updateParams} />
+            <div className="wrapper">
+                <CatForm handleSubmit={updateParams} />
 
-            <ul className="galleryResults">
-                {cats.map((catObj) => {
-                    return <CatCards
-                        key={catObj.name}
-                        name={catObj.name}
-                        imgSource={catObj.image_link}
-                        altText={catObj.name}
-                        origin={catObj.origin}
+                <ul className="galleryResults">
+                    {cats.map((catObj) => {
+                        return <CatCards
+                            key={catObj.name}
+                            name={catObj.name}
+                            imgSource={catObj.image_link}
+                            altText={catObj.name}
+                            origin={catObj.origin}
 
-                        kids={catObj.children_friendly}
-                        fam={catObj.family_friendly}
-                        others={catObj.other_pets_friendly}
+                            kids={catObj.children_friendly}
+                            fam={catObj.family_friendly}
+                            others={catObj.other_pets_friendly}
 
-                        smart={catObj.intelligence}
-                        play={catObj.playfulness}
+                            smart={catObj.intelligence}
+                            play={catObj.playfulness}
 
-                        shed={catObj.shedding}
-                        groom={catObj.grooming}
+                            shed={catObj.shedding}
+                            groom={catObj.grooming}
 
-                        health={catObj.general_health}
-                        minYears={catObj.min_life_expectancy}
-                        maxYears={catObj.max_life_expectancy}
-                        length={catObj.length}
-                        minWeight={catObj.min_weight}
-                        maxWeight={catObj.max_weight}
-                    />
-                })
-                }
-            </ul>
+                            health={catObj.general_health}
+                            minYears={catObj.min_life_expectancy}
+                            maxYears={catObj.max_life_expectancy}
+                            length={catObj.length}
+                            minWeight={catObj.min_weight}
+                            maxWeight={catObj.max_weight}
+                        />
+                    })
+                    }
+                </ul>
+
+            </div>
         </section>
     )
 }
