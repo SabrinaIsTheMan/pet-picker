@@ -38,7 +38,7 @@
 }
 
 .imgContainer {
-    width: auto;
+    width: calc(20vw - 40px);
     height: calc(20vw - 40px);
 }
 
@@ -112,6 +112,7 @@
     }
 
     .imgContainer {
+        width: calc(30vw - 40px);
         height: calc(30vw - 40px);
     }
 }
@@ -122,6 +123,7 @@
     }
 
     .imgContainer {
+        width: calc(40vw - 40px);
         height: calc(40vw - 40px);
     }
 
@@ -143,6 +145,7 @@
     }
 
     .imgContainer {
+        width: calc(80vw - 40px);
         height: calc(80vw - 40px);
     }
 }

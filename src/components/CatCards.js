@@ -13,7 +13,7 @@ function CatCards(props) {
                 <div className="cardFace" onClick={() => setOpen(true)}>
                     <div className="breedName">
                         <h2>{props.name}</h2>
-                        </div>
+                    </div>
                     <div className="imgContainer">
                         <img src={props.imgSource} alt={props.altText}></img>
                     </div>

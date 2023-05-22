@@ -4,20 +4,21 @@ import { useState } from 'react';
 
 function CatForm({ handleSubmit }) {
 
-    const [smartValue, setSmartValue] = useState(3);
-    const [smartCheck, setSmartCheck] = useState(true);
+    const [groomValue, setGroomValue] = useState(3);
+    const [groomCheck, setGroomCheck] = useState(true);
 
-    const handleSmartChange = (event) => {
-        setSmartValue(event.target.value);
+    const handleGroomChange = (event) => {
+        console.log(event.target.value);
+        setGroomValue(event.target.value);
     }
 
-    const handleSmartCheck = (event) => {
-        setSmartCheck(!smartCheck);
+    const handleGroomCheck = (event) => {
+        setGroomCheck(!groomCheck);
 
         if (event.target.checked === false) {
-            setSmartValue(null); //console will warn that we should be not passing null as props, but this is a null for an api param so we need it
+            setGroomValue(null); //console will warn that we should be not passing null as props, but this is a null for an api param so we need it
         } else {
-            setSmartValue(3); //back to default when checked
+            setGroomValue(3); //back to default when checked
         }
     }
 
@@ -57,27 +58,27 @@ function CatForm({ handleSubmit }) {
 
     return (
         <div className='wrapper'>
-            <form className="form catForm" onSubmit={(event) => { handleSubmit(event, [smartValue, playValue, shedValue]) }}>
+            <form className="form catForm" onSubmit={(event) => { handleSubmit(event, [groomValue, playValue, shedValue]) }}>
                 <legend>Filter cat breeds by:</legend>
 
                 {/* Intelligence */}
                 <fieldset>
                     <input
                         type="checkbox"
-                        name="smartCheck"
-                        id="smartCheck"
-                        checked={smartCheck}
-                        onChange={handleSmartCheck}
+                        name="groomCheck"
+                        id="groomCheck"
+                        checked={groomCheck}
+                        onChange={handleGroomCheck}
                     />
-                    <label htmlFor="smartValue">Intelligence:</label>
+                    <label htmlFor="groomalue">Grooming:</label>
                     <input
                         type="range"
-                        id="smartValue"
-                        name="smartValue"
+                        id="groomValue"
+                        name="groomValue"
                         step="1" min="1" max="5"
-                        onChange={handleSmartChange}
-                        value={smartValue}
-                        disabled={!smartCheck}
+                        onChange={handleGroomChange}
+                        value={groomValue}
+                        disabled={!groomCheck}
                     />
                 </fieldset>
 

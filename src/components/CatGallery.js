@@ -9,25 +9,25 @@ function CatGallery() {
 
     const [cats, setCats] = useState([]);
 
-    const [smartParam, setSmartParam] = useState(3);
+    const [groomParam, setGroomParam] = useState(3);
     const [playParam, setPlayParam] = useState(3);
     const [shedParam, setShedParam] = useState(3);
 
-    const updateParams = (event, [smartValue, playValue, shedValue]) => {
+    const updateParams = (event, [groomValue, playValue, shedValue]) => {
         event.preventDefault();
 
-        // console.log(`values: smart ${smartValue}, play ${playValue}, shed ${shedValue}`);
+        console.log(`values: groom ${groomValue}, play ${playValue}, shed ${shedValue}`);
 
-        if (smartValue === null && playValue === null && shedValue === null) {
+        if (groomValue === null && playValue === null && shedValue === null) {
             alert("Please pick at least one trait!")
         }
         else {
-            setSmartParam(smartValue);
+            setGroomParam(groomValue);
             setPlayParam(playValue);
             setShedParam(shedValue);
         }
 
-        // console.log(`params: smart ${smartValue}, play ${playValue}, shed ${shedValue}`)
+        console.log(`params: groom ${groomValue}, play ${playValue}, shed ${shedValue}`)
     }
 
     useEffect(() => {
@@ -36,10 +36,9 @@ function CatGallery() {
             headers: { 'X-Api-Key': 'pyRsnD63J96idmPN3crKQQ==l3yrXFvEvPGLif1K' },
             contentType: "application/json",
             params: {
-                intelligence: smartParam,
+                grooming: groomParam,
                 playfulness: playParam,
-                shedding: shedParam,
-                offset: null
+                shedding: shedParam
             }
         })
             .then((apiData) => {
@@ -47,11 +46,11 @@ function CatGallery() {
                     alert("Please be less picky and try again!");
                 }
                 else {
-                    console.log(apiData.data)
+                    console.log(apiData.data);
                     setCats(apiData.data);
                 }
             })
-    }, [smartParam, playParam, shedParam]);
+    }, [groomParam, playParam, shedParam]);
 
     return (
         <section className="gallery">

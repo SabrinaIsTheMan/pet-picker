@@ -41,7 +41,7 @@ function DogGallery() {
                 barking: barkParam,
                 energy: energyParam,
                 shedding: shedParam,
-                trainability: trainParam,
+                trainability: trainParam
             }
         })
             .then((apiData) => {
