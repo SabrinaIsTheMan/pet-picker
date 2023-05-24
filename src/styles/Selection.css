@@ -1,6 +1,14 @@
-.selection div{
+.selection .wrapper, .selectionButtons{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-height: 650px) {
+    .selectionButtons {
+        flex-direction: row;
+    }
 }

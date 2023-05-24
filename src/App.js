@@ -13,6 +13,7 @@ function App() {
       <Header />
       {/* <Selection /> */}
       {/* <HomeButton /> */}
+      {/* <DogGallery /> */}
       <CatGallery />
       <Footer />
     </div>

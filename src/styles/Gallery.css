@@ -6,7 +6,8 @@
 }
 
 .gallery {
-    margin: 20px 0;
+    margin: 0 0 40px;
+    height: auto;
 }
 
 .galleryResults {
@@ -14,6 +15,10 @@
     grid-template-columns: repeat(4, 1fr);
     margin: 40px 0;
     gap: 20px;
+}
+
+p {
+    font-style: italic;
 }
 
 /* MEDIA QUERIES */

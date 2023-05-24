@@ -56,7 +56,7 @@ function CatGallery() {
         <section className="gallery">
             <div className="wrapper">
                 <CatForm handleSubmit={updateParams} />
-
+                <p>Click on a breed to learn more!</p>
                 <ul className="galleryResults">
                     {cats.map((catObj) => {
                         return <CatCards

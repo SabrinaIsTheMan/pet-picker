@@ -59,7 +59,7 @@ function DogGallery() {
         <section className="gallery">
             <div className="wrapper">
                 <DogForm handleSubmit={updateParams} />
-
+                <p>Click on a breed to learn more!</p>
                 <ul className="galleryResults">
                     {dogs.map((dogObj) => {
                         return <DogCards

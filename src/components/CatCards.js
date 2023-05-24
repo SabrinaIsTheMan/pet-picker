@@ -57,8 +57,8 @@ function CatCards(props) {
                     <div className="cardsFactsGroup">
                         <h4>Health</h4>
                         <p><span>General Health:</span> {props.health}/5</p>
+                        <p><span>Body Size:</span> {props.length}</p>
                         <p><span>Life Expectancy:</span> {props.minYears} to {props.maxYears} years</p>
-                        <p><span>Body Length: {props.length}</span></p>
                         <p><span>Weight:</span> {props.minWeight} to {props.maxWeight} lbs</p>
                     </div>
                 </div>
