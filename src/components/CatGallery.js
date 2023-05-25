@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import CatForm from './CatForm.js';
 import CatCards from './CatCards.js';
+import HomeButton from './HomeButton';
 
 function CatGallery() {
 
@@ -55,8 +56,12 @@ function CatGallery() {
     return (
         <section className="gallery">
             <div className="wrapper">
+                <HomeButton />
+
                 <CatForm handleSubmit={updateParams} />
+
                 <p>Click on a breed to learn more!</p>
+                
                 <ul className="galleryResults">
                     {cats.map((catObj) => {
                         return <CatCards
@@ -86,7 +91,6 @@ function CatGallery() {
                     })
                     }
                 </ul>
-
             </div>
         </section>
     )

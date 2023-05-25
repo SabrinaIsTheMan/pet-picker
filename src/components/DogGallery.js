@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import DogForm from './DogForm.js';
 import DogCards from './DogCards.js';
+import HomeButton from './HomeButton';
 
 function DogGallery() {
 
@@ -58,6 +59,7 @@ function DogGallery() {
     return (
         <section className="gallery">
             <div className="wrapper">
+                <HomeButton />
                 <DogForm handleSubmit={updateParams} />
                 <p>Click on a breed to learn more!</p>
                 <ul className="galleryResults">

@@ -20,6 +20,8 @@
 .homeButton {
     background: #B9CBC6;
     border-bottom: solid 4px #84A59D;
+    height: 7vh;
+    padding: 0 20px;
 }
 
 /* push button effect */

@@ -1,11 +1,15 @@
 import '../styles/Buttons.css';
+import { Link } from 'react-router-dom';
 
 function HomeButton() {
 
     return (
-        <button className="homeButton button">
-            Back
-        </button>
+        <Link to="/">
+            <button className="homeButton button">
+                Back
+            </button>
+        </Link>
+
     );
 }
 

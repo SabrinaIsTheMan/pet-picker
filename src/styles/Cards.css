@@ -6,6 +6,11 @@
     border-radius: 20px;
 }
 
+.cards:focus,
+.cards:active {
+    border: 3px solid green;
+}
+
 .dogCards {
     background: #F7C677;
 }
@@ -54,9 +59,9 @@
     display: grid;
     grid-template-rows: 0.5fr 0.5fr;
     grid-template-columns: 0.5fr 0.5fr;
-    align-items: start;
+    place-items: center;
     gap: 5px;
-    width: 100%;
+    width: auto;
 }
 
 .cardsFactsTitle{
@@ -80,7 +85,7 @@
 }
 
 .cardsFactsGroup p {
-    line-height: 25%;
+    line-height: 0;
 }
 
 .cardsFactsGroup span {
@@ -90,6 +95,10 @@
 
 .cardsFactsGroup {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
 }
 
 /* MODAL STYLES */

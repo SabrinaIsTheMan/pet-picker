@@ -50,6 +50,7 @@ a{
 
 h1 {
   font-size: clamp(1.5rem, 0.8684rem + 3.1579vw, 3rem);
+  margin-bottom: 1%;
 }
 
 h2{

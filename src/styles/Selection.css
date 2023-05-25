@@ -5,7 +5,17 @@
     align-items: center;
 }
 
+.selection .wrapper p {
+    width: 60%;
+}
+
 /* MEDIA QUERIES */
+
+@media(max-width: 768px) {
+    .selection .wrapper p {
+            width: 80%;
+        }
+}
 
 @media (max-height: 650px) {
     .selectionButtons {

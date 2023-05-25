@@ -4,6 +4,7 @@
     height: auto;
     text-align: center;
     padding: 10px 20px;
+    margin: 20px 0 0;
     border-radius: 20px;
     border: 2.5px solid #84A59D;
     display: flex;
@@ -36,16 +37,17 @@
 }
 
 .form legend {
-    font-size: clamp(0.8rem, 0.7158rem + 0.4211vw, 1rem);
+    font-size: 1rem;
+    padding-bottom: 10px;
 }
 
 .form input[type="checkbox"] {
-    width: clamp(0.8rem, 0.7158rem + 0.4211vw, 1rem);
-    height: clamp(0.8rem, 0.7158rem + 0.4211vw, 1rem);
+    width: 1rem;
+    height: 1rem;
 }
 
 .form input[type="range"] {
-    height: clamp(0.8rem, 0.7158rem + 0.4211vw, 1rem);
+    height: 1rem;
     width: 100%;
 }
 
@@ -53,10 +55,8 @@ button {
     padding: 10px;
     border-radius: 10px;
     border: solid transparent;
-}
-
-.form div {
-    height: 10%;
+    height: 7vh;
+    margin: 5px 0;
 }
 
 /* MEDIA QUERIES */
@@ -78,7 +78,20 @@ button {
     }
 
     .form fieldset {
-        padding: 5% 0;
+        padding: 2.5% 0;
+    }
+
+    .form legend {
+        font-size: 1.1rem;
+    }
+
+    .form input[type="checkbox"] {
+        width: 1.1rem;
+        height: 1.1rem;
+    }
+
+    .form input[type="range"] {
+        height: 1.1rem;
     }
 }
 
@@ -101,6 +114,6 @@ button {
     }
 
     .form fieldset {
-        padding: 8% 0;
+        padding: 5% 0;
     }
 }
