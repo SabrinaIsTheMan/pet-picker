@@ -1,4 +1,4 @@
-.selection .wrapper, .selectionButtons{
+.selection .wrapper, .selectionButtons, .selectionButton{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,14 +6,18 @@
 }
 
 .selection .wrapper p {
-    width: 60%;
+    width: 75%;
+}
+
+.selectionButtons {
+    margin-bottom: 60px;
 }
 
 /* MEDIA QUERIES */
 
 @media(max-width: 768px) {
     .selection .wrapper p {
-            width: 80%;
+            width: 90%;
         }
 }
 

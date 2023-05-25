@@ -4,7 +4,7 @@
     border-radius: 20px;
     border: solid transparent;
     width: 300px;
-    height: 20vh;
+    height: 100px;
 }
 
 .dogButton {
@@ -20,7 +20,7 @@
 .homeButton {
     background: #B9CBC6;
     border-bottom: solid 4px #84A59D;
-    height: 7vh;
+    height: 50px;
     padding: 0 20px;
 }
 
