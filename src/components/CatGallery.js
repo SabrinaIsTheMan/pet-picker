@@ -7,7 +7,7 @@ import CatCards from './CatCards.js';
 import HomeButton from './HomeButton';
 import Pagination from './Pagination';
 
-function CatGallery() {
+function CatGallery( {handleTitleChange} ) {
 
     const [cats, setCats] = useState([]);
 
@@ -87,7 +87,7 @@ function CatGallery() {
     return (
         <section className="gallery">
             <div className="wrapper">
-                <HomeButton />
+                <HomeButton handleTitleChange={handleTitleChange}/>
 
                 <CatForm handleSubmit={updateParams} />
 

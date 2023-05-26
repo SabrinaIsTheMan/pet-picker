@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCat, faDog } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
-function Selection() {
+function Selection( {handleTitleChange} ) {
     return (
         <div className="selection">
             <div className='wrapper'>
@@ -16,6 +16,8 @@ function Selection() {
                         <button
                             className="selectionButton dogButton"
                             aria-label='Dog'
+                            value="Dog"
+                            onClick={handleTitleChange}
                         >
                             <FontAwesomeIcon icon={faDog} size="3x" className="buttonIcon" />
                         </button>
@@ -25,6 +27,8 @@ function Selection() {
                         <button
                             className="selectionButton catButton"
                             aria-label='Cat'
+                            value="Cat"
+                            onClick={handleTitleChange}
                         >
                             <FontAwesomeIcon icon={faCat} size="3x" className="buttonIcon" />
                         </button>

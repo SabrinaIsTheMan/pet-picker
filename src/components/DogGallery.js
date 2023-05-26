@@ -7,7 +7,7 @@ import DogCards from './DogCards.js';
 import HomeButton from './HomeButton';
 import Pagination from './Pagination';
 
-function DogGallery() {
+function DogGallery({ handleTitleChange } ) {
 
     const [dogs, setDogs] = useState([]);
 
@@ -91,7 +91,7 @@ function DogGallery() {
     return (
         <section className="gallery">
             <div className="wrapper">
-                <HomeButton />
+                <HomeButton handleTitleChange={handleTitleChange} />
 
                 <DogForm handleSubmit={updateParams} />
 
