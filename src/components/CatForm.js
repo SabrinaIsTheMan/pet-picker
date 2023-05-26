@@ -124,7 +124,7 @@ function CatForm({ handleSubmit }) {
                     />
                 </fieldset>
 
-                <button type="Submit" className="catButton">Submit</button>
+                <button type="Submit" className="catButton button">Submit</button>
             </form>
         </div>
     )

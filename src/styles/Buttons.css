@@ -17,11 +17,16 @@
     border-bottom: solid 4px #F28482;
 }
 
-.homeButton {
+.homeButton, .pageButton {
     background: #B9CBC6;
     border-bottom: solid 4px #84A59D;
     height: 50px;
     padding: 0 20px;
+}
+
+.pageButtons {
+    display: flex;
+    gap: 20px;
 }
 
 /* push button effect */

@@ -1,3 +1,8 @@
+.selection .wrapper{
+    height: 80vh;
+
+}
+
 .selection .wrapper, .selectionButtons, .selectionButton{
     display: flex;
     flex-direction: column;
@@ -10,7 +15,7 @@
 }
 
 .selectionButtons {
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 
 /* MEDIA QUERIES */

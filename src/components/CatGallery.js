@@ -5,6 +5,7 @@ import axios from 'axios';
 import CatForm from './CatForm.js';
 import CatCards from './CatCards.js';
 import HomeButton from './HomeButton';
+import Pagination from './Pagination';
 
 function CatGallery() {
 
@@ -13,6 +14,8 @@ function CatGallery() {
     const [groomParam, setGroomParam] = useState(3);
     const [playParam, setPlayParam] = useState(3);
     const [shedParam, setShedParam] = useState(3);
+
+    const [page, setPage] = useState(0);
 
     const updateParams = (event, [groomValue, playValue, shedValue]) => {
         event.preventDefault();
@@ -31,6 +34,27 @@ function CatGallery() {
         console.log(`params: groom ${groomValue}, play ${playValue}, shed ${shedValue}`)
     }
 
+    const nextPage = (event) => {
+        event.preventDefault();
+
+        const pageCopy = page;
+        const newPage = pageCopy + 20;
+        setPage(newPage);
+    }
+
+    const backPage = (event) => {
+        event.preventDefault();
+
+        const pageCopy = page;
+
+        if (pageCopy === 0) {
+            alert("You're already on the first page!")
+        } else {
+            const newPage = pageCopy - 20;
+            setPage(newPage);
+        }
+    }
+
     useEffect(() => {
 
         axios("https://api.api-ninjas.com/v1/cats", {
@@ -39,11 +63,14 @@ function CatGallery() {
             params: {
                 grooming: groomParam,
                 playfulness: playParam,
-                shedding: shedParam
+                shedding: shedParam,
+                offset: page
             }
         })
             .then((apiData) => {
-                if (apiData.data.length === 0) {
+                if (apiData.data.length === 0 && page > 0) {
+                    alert("You're already on the last page!")
+                } else if (apiData.data.length === 0) {
                     alert("Please be less picky and try again!");
                 }
                 else {
@@ -51,7 +78,7 @@ function CatGallery() {
                     setCats(apiData.data);
                 }
             })
-    }, [groomParam, playParam, shedParam]);
+    }, [groomParam, playParam, shedParam, page]);
 
     return (
         <section className="gallery">
@@ -61,7 +88,9 @@ function CatGallery() {
                 <CatForm handleSubmit={updateParams} />
 
                 <p>Click on a breed to learn more!</p>
-                
+
+                <Pagination next={nextPage} back={backPage} />
+
                 <ul className="galleryResults">
                     {cats.map((catObj) => {
                         return <CatCards

@@ -5,6 +5,7 @@ import axios from 'axios';
 import DogForm from './DogForm.js';
 import DogCards from './DogCards.js';
 import HomeButton from './HomeButton';
+import Pagination from './Pagination';
 
 function DogGallery() {
 
@@ -14,6 +15,8 @@ function DogGallery() {
     const [energyParam, setEnergyParam] = useState(3);
     const [shedParam, setShedParam] = useState(3);
     const [trainParam, setTrainParam] = useState(3);
+
+    const [page, setPage] = useState(0);
 
     const updateParams = (event, [barkValue, energyValue, shedValue, trainValue]) => {
         event.preventDefault();
@@ -33,6 +36,27 @@ function DogGallery() {
         // console.log(`params: bark ${barkParam}, e ${energyParam}, shed ${shedParam}, train ${trainParam}`)
     }
 
+    const nextPage = (event) => {
+        event.preventDefault();
+
+        const pageCopy = page;
+        const newPage = pageCopy + 20;
+        setPage(newPage);
+    }
+
+    const backPage = (event) => {
+        event.preventDefault();
+
+        const pageCopy = page;
+
+        if (pageCopy === 0) {
+            alert("You're already on the first page!")
+        } else {
+            const newPage = pageCopy - 20;
+            setPage(newPage);
+        }
+    }
+
     useEffect(() => {
 
         axios("https://api.api-ninjas.com/v1/dogs", {
@@ -42,11 +66,15 @@ function DogGallery() {
                 barking: barkParam,
                 energy: energyParam,
                 shedding: shedParam,
-                trainability: trainParam
+                trainability: trainParam,
+                offset: page
             }
         })
             .then((apiData) => {
-                if (apiData.data.length === 0) {
+                if (apiData.data.length === 0 && page > 0) {
+                    alert("You're already on the last page!")
+                }
+                else if (apiData.data.length === 0) {
                     alert("Please be less picky and try again!");
                 }
                 else {
@@ -54,14 +82,19 @@ function DogGallery() {
                     setDogs(apiData.data);
                 }
             })
-    }, [barkParam, energyParam, shedParam, trainParam]);
+    }, [barkParam, energyParam, shedParam, trainParam, page]);
 
     return (
         <section className="gallery">
             <div className="wrapper">
                 <HomeButton />
+
                 <DogForm handleSubmit={updateParams} />
+
                 <p>Click on a breed to learn more!</p>
+
+                <Pagination next={nextPage} back={backPage}/>
+
                 <ul className="galleryResults">
                     {dogs.map((dogObj) => {
                         return <DogCards

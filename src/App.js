@@ -1,10 +1,11 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import Header from './components/Header.js';
-import Selection from './components/Selection.js'
-import DogGallery from './components/DogGallery.js';
-import CatGallery from './components/CatGallery.js';
-import Footer from './components/Footer.js';
+import Header from './components/Header';
+import Selection from './components/Selection'
+import DogGallery from './components/DogGallery';
+import CatGallery from './components/CatGallery';
+import Footer from './components/Footer';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
         <Route path="/dog" element={<DogGallery />} />
         <Route path="/cat" element={<CatGallery />} />
 
-        <Route path="*" component={<Selection />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
 
       <Footer />
