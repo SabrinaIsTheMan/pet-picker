@@ -70,18 +70,22 @@ function DogGallery() {
                 offset: page
             }
         })
-            .then((apiData) => {
-                if (apiData.data.length === 0 && page > 0) {
-                    alert("You're already on the last page!")
-                }
-                else if (apiData.data.length === 0) {
-                    alert("Please be less picky and try again!");
-                }
-                else {
-                    console.log(apiData.data)
-                    setDogs(apiData.data);
-                }
-            })
+        .then((apiData) => {
+            if (apiData.data.length === 0 && page > 0) {
+                alert("You're already on the last page!")
+            }
+            else if (apiData.data.length === 0) {
+                alert("Please be less picky and try again!");
+            }
+            else {
+                console.log(apiData.data)
+                setDogs(apiData.data);
+            }
+        })
+        .catch((error) => {
+            alert("Something went wrong, please try again later.");
+            console.log(error);
+        });
     }, [barkParam, energyParam, shedParam, trainParam, page]);
 
     return (

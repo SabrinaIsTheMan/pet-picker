@@ -67,17 +67,21 @@ function CatGallery() {
                 offset: page
             }
         })
-            .then((apiData) => {
-                if (apiData.data.length === 0 && page > 0) {
-                    alert("You're already on the last page!")
-                } else if (apiData.data.length === 0) {
-                    alert("Please be less picky and try again!");
-                }
-                else {
-                    console.log(apiData.data);
-                    setCats(apiData.data);
-                }
-            })
+        .then((apiData) => {
+            if (apiData.data.length === 0 && page > 0) {
+                alert("You're already on the last page!")
+            } else if (apiData.data.length === 0) {
+                alert("Please be less picky and try again!");
+            }
+            else {
+                console.log(apiData.data);
+                setCats(apiData.data);
+            }
+        })
+        .catch((error) => {
+            alert("Something went wrong, please try again later.");
+            console.log(error);
+        });
     }, [groomParam, playParam, shedParam, page]);
 
     return (
