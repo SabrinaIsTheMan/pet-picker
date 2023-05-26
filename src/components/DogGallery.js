@@ -31,6 +31,7 @@ function DogGallery({ handleTitleChange } ) {
             setEnergyParam(energyValue);
             setShedParam(shedValue);
             setTrainParam(trainValue);
+            setPage(0);
         }
 
         // console.log(`params: bark ${barkParam}, e ${energyParam}, shed ${shedParam}, train ${trainParam}`)

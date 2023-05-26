@@ -20,7 +20,7 @@ function CatGallery( {handleTitleChange} ) {
     const updateParams = (event, [groomValue, playValue, shedValue]) => {
         event.preventDefault();
 
-        console.log(`values: groom ${groomValue}, play ${playValue}, shed ${shedValue}`);
+        // console.log(`values: groom ${groomValue}, play ${playValue}, shed ${shedValue}`);
 
         if (groomValue === null && playValue === null && shedValue === null) {
             alert("Please pick at least one trait!")
@@ -29,9 +29,10 @@ function CatGallery( {handleTitleChange} ) {
             setGroomParam(groomValue);
             setPlayParam(playValue);
             setShedParam(shedValue);
+            setPage(0);
         }
 
-        console.log(`params: groom ${groomValue}, play ${playValue}, shed ${shedValue}`)
+        // console.log(`params: groom ${groomValue}, play ${playValue}, shed ${shedValue}`)
     }
 
     const nextPage = (event) => {
