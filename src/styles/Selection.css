@@ -22,12 +22,7 @@
 
 @media(max-width: 768px) {
     .selection .wrapper p {
-            width: 90%;
-        }
-}
-
-@media (max-height: 650px) {
-    .selectionButtons {
+        width: 90%;
         flex-direction: row;
     }
 }

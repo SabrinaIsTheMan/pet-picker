@@ -1,7 +1,7 @@
 .footer{
     background-color: #84A59D;
     font-weight: 700;
-    height: auto;
+    height: fit-content;
     position: fixed;
     right: 0;
     bottom: 0;

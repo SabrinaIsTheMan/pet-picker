@@ -38,7 +38,7 @@
 
 .form legend {
     font-size: 1rem;
-    padding-bottom: 10px;
+    padding: 10px 0;
 }
 
 .form input[type="checkbox"] {

@@ -6,7 +6,8 @@ function Footer() {
     return (
     <div className="footer">
         <div className='wrapper'>
-            <p><FontAwesomeIcon icon={faPaw} /> Created by <a href="https://github.com/SabrinaIsTheMan" target="_blank" rel="noopener noreferrer">Sabrina</a> at <a href="https://junocollege.com/" target="_blank" rel="noopener noreferrer">Juno College</a> <FontAwesomeIcon icon={faPaw} /></p>
+            <p>
+            <FontAwesomeIcon icon={faPaw} /> <a href="https://github.com/SabrinaIsTheMan" target="_blank" rel="noopener noreferrer">Coded</a> by <a href="https://sabrinaistheman.com" target="_blank" rel="noopener noreferrer">Sabrina</a> at <a href="https://junocollege.com/" target="_blank" rel="noopener noreferrer">Juno College</a> <FontAwesomeIcon icon={faPaw} /></p>
         </div>
     </div>
     )
