@@ -1,6 +1,5 @@
 .selection .wrapper{
     height: 80vh;
-
 }
 
 .selection .wrapper, .selectionButtons, .selectionButton{
@@ -15,7 +14,7 @@
 }
 
 .selectionButtons {
-    margin-bottom: 20px;
+    margin-bottom: 80px;
 }
 
 /* MEDIA QUERIES */
@@ -23,6 +22,5 @@
 @media(max-width: 768px) {
     .selection .wrapper p {
         width: 90%;
-        flex-direction: row;
     }
 }

@@ -1,0 +1,6 @@
+.header .wrapper{
+    display: flex;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+}

@@ -27,7 +27,9 @@
 
 .pageButtons {
     display: flex;
-    gap: 40px;
+    width: 320px;
+    height: fit-content;
+    justify-content: space-evenly;
 }
 
 /* push button effect */
