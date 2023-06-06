@@ -9,7 +9,7 @@ function HomeButton({ handleTitleChange }) {
                 className="homeButton button"
                 value="Pet"
                 onClick={handleTitleChange}>
-                Back
+                Home
             </button>
         </Link>
 

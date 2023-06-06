@@ -21,8 +21,6 @@ function DogGallery({ handleTitleChange } ) {
     const updateParams = (event, [barkValue, energyValue, shedValue, trainValue]) => {
         event.preventDefault();
 
-        // console.log(`values: bark ${barkValue}, e ${energyValue}, shed ${shedValue}, train ${trainValue}`)
-
         if (barkValue === null && energyValue === null && shedValue === null && trainValue === null) {
             alert("Please pick at least one trait!")
         }
@@ -33,8 +31,6 @@ function DogGallery({ handleTitleChange } ) {
             setTrainParam(trainValue);
             setPage(0);
         }
-
-        // console.log(`params: bark ${barkParam}, e ${energyParam}, shed ${shedParam}, train ${trainParam}`)
     }
 
     const nextPage = (event) => {
