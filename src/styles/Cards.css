@@ -1,0 +1,164 @@
+.cards{
+    cursor: pointer;
+    width: 20vw;
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.cards:focus,
+.cards:active {
+    border: 2px solid blue;
+}
+
+.dogCards {
+    background: #F7C677;
+}
+
+.catCards {
+    background: #F8BCBB;
+}
+
+.cards h2{
+    font-size: clamp(0.9rem, 0.8579rem + 0.2105vw, 1rem);
+}
+
+.cardFace {
+    display: grid;
+    grid-template-rows: 20% 80%;
+    place-items: center;
+    height: 100%;
+    width: auto;
+}
+
+.breedName {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgContainer {
+    width: calc(20vw - 40px);
+    height: calc(20vw - 40px);
+}
+
+.imgContainer img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* MODAL CONTENT STYLES */
+.cardsFacts {
+    display: grid;
+    grid-template-rows: 0.5fr 0.5fr;
+    grid-template-columns: 0.5fr 0.5fr;
+    place-items: center;
+    width: auto;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.cardsFactsTitle{
+    text-align: center;
+}
+
+.cardsFactsTitle h3 {
+    font-size: clamp(0.9rem, 0.7316rem + 0.8421vw, 1.3rem);
+}
+
+.cardsFactsTitle p {
+    padding: 0;
+    margin: 0;
+    line-height: 0%;
+}
+
+.cardsFactsGroup h4 {
+    font-size: clamp(0.8rem, 0.6737rem + 0.6316vw, 1.1rem);
+    text-decoration: underline;
+    text-align: center;
+}
+
+.cardsFactsGroup p {
+    line-height: 50%;
+    font-size: clamp(0.7rem, 0.6579rem + 0.2105vw, 0.8rem);
+}
+
+.cardsFactsGroup span {
+    font-weight: 700;
+    font-size: 95%;
+}
+
+.cardsFactsGroup {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
+}
+
+/* MODAL STYLES */
+.customOverlay {
+    background: rgba(35, 31, 32, 0.7);
+}
+
+.customModal {
+    border-radius: 20px;
+    border: 5px solid #84A59D;
+    width: 85vw;
+    height: auto;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1000px) {
+    .cards{
+        width: 30vw;
+    }
+
+    .imgContainer {
+        width: calc(30vw - 40px);
+        height: calc(30vw - 40px);
+    }
+}
+
+@media (max-width: 768px) {
+    .cardsFacts {
+            grid-template-rows: repeat(4, 0.25fr);
+            grid-template-columns: 1fr;
+            place-items: center;
+        }
+
+        .cardsFactsGroup {
+            width: 100%;
+            text-align: center;
+        }
+}
+
+@media (max-width: 620px) {
+    .cards {
+        width: 40vw;
+    }
+
+    .imgContainer {
+        width: calc(40vw - 40px);
+        height: calc(40vw - 40px);
+    }
+}
+
+@media (max-width: 450px) {
+    .cards {
+        width: 80vw;
+    }
+
+    .imgContainer {
+        width: calc(80vw - 40px);
+        height: calc(80vw - 40px);
+    }
+}

@@ -1,0 +1,22 @@
+.selection .wrapper, .selectionButtons, .selectionButton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.selection .wrapper p {
+    width: 75%;
+}
+
+.selectionButtons {
+    padding: 0 0 40px;
+}
+
+/* MEDIA QUERIES */
+
+@media(max-width: 768px) {
+    .selection .wrapper p {
+        width: 90%;
+    }
+}
