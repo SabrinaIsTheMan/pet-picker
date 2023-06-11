@@ -17,10 +17,11 @@ function CatGallery( {handleTitleChange} ) {
 
     const [page, setPage] = useState(0);
 
+    const [backDisabled, setBackDisabled] = useState(true);
+    const [nextDisabled, setNextDisabled] = useState(false);
+
     const updateParams = (event, [groomValue, playValue, shedValue]) => {
         event.preventDefault();
-
-        // console.log(`values: groom ${groomValue}, play ${playValue}, shed ${shedValue}`);
 
         if (groomValue === null && playValue === null && shedValue === null) {
             alert("Please pick at least one trait!")
@@ -31,33 +32,52 @@ function CatGallery( {handleTitleChange} ) {
             setShedParam(shedValue);
             setPage(0);
         }
-
-        // console.log(`params: groom ${groomValue}, play ${playValue}, shed ${shedValue}`)
     }
 
     const nextPage = (event) => {
         event.preventDefault();
 
-        const pageCopy = page;
-        const newPage = pageCopy + 20;
-        setPage(newPage);
+        setPage(page + 20);
+        setBackDisabled(false);
     }
 
     const backPage = (event) => {
         event.preventDefault();
 
-        const pageCopy = page;
-
-        if (pageCopy === 0) {
-            alert("You're already on the first page!")
+        if (page === 0) {
+            setBackDisabled(true);
         } else {
-            const newPage = pageCopy - 20;
-            setPage(newPage);
+            setPage(page - 20);
         }
     }
 
     useEffect(() => {
 
+        // first, check if we're on the first page - if so, disabled back button
+        if (page === 0) {
+            setBackDisabled(true);
+        }
+
+        // check if next page (next offset of 20) returns an empty array - if so, disable next button
+        axios("https://api.api-ninjas.com/v1/cats", {
+            headers: { 'X-Api-Key': 'pyRsnD63J96idmPN3crKQQ==l3yrXFvEvPGLif1K' },
+            contentType: "application/json",
+            params: {
+                grooming: groomParam,
+                playfulness: playParam,
+                shedding: shedParam,
+                offset: (page + 20)
+            }
+        })
+        .then((apiDataNext) => {
+            if (apiDataNext.data.length === 0) {
+                setNextDisabled(true);
+            } else {
+                setNextDisabled(false);
+            }
+        })
+
+        // now save the actual data (aka current page) into state
         axios("https://api.api-ninjas.com/v1/cats", {
             headers: { 'X-Api-Key': 'pyRsnD63J96idmPN3crKQQ==l3yrXFvEvPGLif1K' },
             contentType: "application/json",
@@ -69,13 +89,10 @@ function CatGallery( {handleTitleChange} ) {
             }
         })
         .then((apiData) => {
-            if (apiData.data.length === 0 && page > 0) {
-                alert("You're already on the last page!")
-            } else if (apiData.data.length === 0) {
+            if (apiData.data.length === 0) {
                 alert("Please be less picky and try again!");
             }
             else {
-                console.log(apiData.data);
                 setCats(apiData.data);
             }
         })
@@ -94,7 +111,7 @@ function CatGallery( {handleTitleChange} ) {
 
                 <p>Click on a breed to learn more!</p>
 
-                <Pagination next={nextPage} back={backPage} />
+                <Pagination next={nextPage} back={backPage} backDisabled={backDisabled} nextDisabled={nextDisabled} />
 
                 <ul className="galleryResults">
                     {cats.map((catObj) => {

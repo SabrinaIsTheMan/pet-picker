@@ -18,6 +18,9 @@ function DogGallery({ handleTitleChange } ) {
 
     const [page, setPage] = useState(0);
 
+    const[backDisabled, setBackDisabled] = useState(true);
+    const[nextDisabled, setNextDisabled] = useState(false);
+
     const updateParams = (event, [barkValue, energyValue, shedValue, trainValue]) => {
         event.preventDefault();
 
@@ -36,26 +39,48 @@ function DogGallery({ handleTitleChange } ) {
     const nextPage = (event) => {
         event.preventDefault();
 
-        const pageCopy = page;
-        const newPage = pageCopy + 20;
-        setPage(newPage);
+        setPage(page + 20);
+        setBackDisabled(false);
     }
 
     const backPage = (event) => {
         event.preventDefault();
 
-        const pageCopy = page;
-
-        if (pageCopy === 0) {
-            alert("You're already on the first page!")
+        if (page === 0) {
+            setBackDisabled(true);
         } else {
-            const newPage = pageCopy - 20;
-            setPage(newPage);
+            setPage(page - 20);
         }
     }
 
     useEffect(() => {
 
+        // first, check if we're on the first page - if so, disabled back button
+        if (page === 0) {
+            setBackDisabled(true);
+        }
+
+        // check if next page (next offset of 20) returns an empty array - if so, disable next button
+        axios("https://api.api-ninjas.com/v1/dogs", {
+            headers: { 'X-Api-Key': 'pyRsnD63J96idmPN3crKQQ==l3yrXFvEvPGLif1K' },
+            contentType: "application/json",
+            params: {
+                barking: barkParam,
+                energy: energyParam,
+                shedding: shedParam,
+                trainability: trainParam,
+                offset: (page + 20)
+            }
+        })
+        .then((apiDataNext) => {
+            if (apiDataNext.data.length === 0) {
+                setNextDisabled(true);
+            } else {
+                setNextDisabled(false);
+            }
+        })
+
+        // now save the actual data (aka current page) into state
         axios("https://api.api-ninjas.com/v1/dogs", {
             headers: { 'X-Api-Key': 'pyRsnD63J96idmPN3crKQQ==l3yrXFvEvPGLif1K' },
             contentType: "application/json",
@@ -68,14 +93,10 @@ function DogGallery({ handleTitleChange } ) {
             }
         })
         .then((apiData) => {
-            if (apiData.data.length === 0 && page > 0) {
-                alert("You're already on the last page!")
-            }
-            else if (apiData.data.length === 0) {
+            if (apiData.data.length === 0) {
                 alert("Please be less picky and try again!");
             }
             else {
-                console.log(apiData.data)
                 setDogs(apiData.data);
             }
         })
@@ -83,6 +104,7 @@ function DogGallery({ handleTitleChange } ) {
             alert("Something went wrong, please try again later.");
             console.log(error);
         });
+
     }, [barkParam, energyParam, shedParam, trainParam, page]);
 
     return (
@@ -94,7 +116,7 @@ function DogGallery({ handleTitleChange } ) {
 
                 <p>Click on a breed to learn more!</p>
 
-                <Pagination next={nextPage} back={backPage}/>
+                <Pagination next={nextPage} back={backPage} backDisabled={backDisabled} nextDisabled={nextDisabled}/>
 
                 <ul className="galleryResults">
                     {dogs.map((dogObj) => {

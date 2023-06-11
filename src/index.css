@@ -60,10 +60,3 @@ h2{
 p {
   font-size: clamp(0.7rem, 0.5737rem + 0.6316vw, 1rem);
 }
-
-/* MEDIA QUERIES */
-@media (max-width: 768px) {
-  .wrapper {
-      width: 90%;
-    }
-}
