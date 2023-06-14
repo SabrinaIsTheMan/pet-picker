@@ -165,7 +165,7 @@ function DogForm({handleSubmit}) {
                     />
                 </fieldset>
 
-                <button type="Submit" className="dogButton button">Submit</button>
+                <button type="Submit" className="dogButton">Submit</button>
             </form>
         </div>
     )
