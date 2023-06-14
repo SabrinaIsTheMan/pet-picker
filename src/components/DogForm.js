@@ -85,6 +85,7 @@ function DogForm({handleSubmit}) {
                         id="barkCheck"
                         checked={barkCheck}
                         onChange={handleBarkCheck}
+                        aria-label="Barking Checkbox"
                     />
                     <label htmlFor="barkValue">Barking:</label>
                     <input
@@ -106,6 +107,7 @@ function DogForm({handleSubmit}) {
                         id="energyCheck"
                         checked={energyCheck}
                         onChange={handleEnergyCheck}
+                        aria-label="Energy Checkbox"
                     />
                     <label htmlFor="energyValue">Energy:</label>
                     <input
@@ -127,6 +129,7 @@ function DogForm({handleSubmit}) {
                         id="shedCheck"
                         checked={shedCheck}
                         onChange={handleShedCheck}
+                        aria-label="Sheeding Checkbox"
                     />
                     <label htmlFor="shedValue">Shedding:</label>
                     <input
@@ -148,6 +151,7 @@ function DogForm({handleSubmit}) {
                         id="trainCheck"
                         checked={trainCheck}
                         onChange={handleTrainCheck}
+                        aria-label="Trainability Checkbox"
                     />
                     <label htmlFor="trainValue">Trainability:</label>
                     <input

@@ -12,10 +12,10 @@ function Selection( {handleTitleChange} ) {
                 <p><em>Please remember that the data provided is for reference only. All pets come with their own personalities, quirks, and headaches (just like humans) - the best pet for you is the one that you love, and one that loves you back. Please consider checking out local shelters and rescues when looking for a pet. <strong>#AdoptDontShop</strong></em></p>
 
                 <div className="selectionButtons">
-                    <Link to= "/dog">
+                    <Link to="/dog" aria-label='Dog Button'>
                         <button
                             className="selectionButton dogButton"
-                            aria-label='Dog'
+                            aria-label='Dog icon'
                             value="Dog"
                             onClick={handleTitleChange}
                         >
@@ -23,10 +23,10 @@ function Selection( {handleTitleChange} ) {
                         </button>
                     </Link>
 
-                    <Link to="/cat">
+                    <Link to="/cat" aria-label='Cat Button'>
                         <button
                             className="selectionButton catButton"
-                            aria-label='Cat'
+                            aria-label='Cat icon'
                             value="Cat"
                             onClick={handleTitleChange}
                         >

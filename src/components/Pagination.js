@@ -9,13 +9,15 @@ function Pagination( {next, back, backDisabled, nextDisabled } ) {
             <button
                 className="backButton pageButton button"
                 disabled={ backDisabled }
+                aria-label='Back Button'
                 onClick={ (event) => { back(event) } } >
                 <FontAwesomeIcon icon={ faAngleLeft } />
             </button>
 
             <button
                 className="nextButton pageButton button"
-                    disabled={ nextDisabled }
+                disabled={ nextDisabled }
+                aria-label='Next Button'
                 onClick={ (event) => { next(event) } } >
                 <FontAwesomeIcon icon={ faAngleRight } />
             </button>

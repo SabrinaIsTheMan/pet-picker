@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import CatForm from './CatForm.js';
-import CatCards from './CatCards.js';
+import CatCard from './CatCard.js';
 import HomeButton from './HomeButton';
 import Pagination from './Pagination';
 
@@ -115,7 +115,7 @@ function CatGallery( {handleTitleChange} ) {
 
                 <ul className="galleryResults">
                     {cats.map((catObj) => {
-                        return <CatCards
+                        return <CatCard
                             key={catObj.name}
                             name={catObj.name}
                             imgSource={catObj.image_link}
