@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import DogForm from './DogForm.js';
-import DogCards from './DogCards.js';
+import DogCard from './DogCard.js';
 import HomeButton from './HomeButton';
 import Pagination from './Pagination';
 
@@ -120,7 +120,7 @@ function DogGallery({ handleTitleChange } ) {
 
                 <ul className="galleryResults">
                     {dogs.map((dogObj) => {
-                        return <DogCards
+                        return <DogCard
                             key={dogObj.name}
                             name={dogObj.name}
                             imgSource={dogObj.image_link}

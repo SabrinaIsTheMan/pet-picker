@@ -69,8 +69,9 @@ function CatForm({ handleSubmit }) {
                         id="groomCheck"
                         checked={groomCheck}
                         onChange={handleGroomCheck}
+                        aria-label="Grooming Checkbox"
                     />
-                    <label htmlFor="groomalue">Grooming:</label>
+                    <label htmlFor="groomValue">Grooming:</label>
                     <input
                         type="range"
                         id="groomValue"
@@ -90,6 +91,7 @@ function CatForm({ handleSubmit }) {
                         id="playCheck"
                         checked={playCheck}
                         onChange={handlePlayCheck}
+                        aria-label="Playfulness Checkbox"
                     />
                     <label htmlFor="playValue">Playfulness:</label>
                     <input
@@ -111,6 +113,7 @@ function CatForm({ handleSubmit }) {
                         id="shedCheck"
                         checked={shedCheck}
                         onChange={handleShedCheck}
+                        aria-label="Shedding Checkbox"
                     />
                     <label htmlFor="shedValue">Shedding:</label>
                     <input

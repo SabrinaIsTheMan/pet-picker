@@ -14,7 +14,7 @@ function App() {
 
   const [titleValue, setTitleValue] = useState("Pet");
 
-   const handleTitleChange = (event) => {
+  const handleTitleChange = (event) => {
       console.log(event.target.value)
       setTitleValue(event.target.value);
     }

@@ -1,34 +1,30 @@
-.cards{
+.card{
     cursor: pointer;
     width: 20vw;
-    height: auto;
-    padding: 20px;
+    height: 100%;
     border-radius: 20px;
-}
-
-.cards:focus,
-.cards:active {
-    border: 2px solid blue;
-}
-
-.dogCards {
-    background: #F7C677;
-}
-
-.catCards {
-    background: #F8BCBB;
-}
-
-.cards h2{
-    font-size: clamp(0.9rem, 0.8579rem + 0.2105vw, 1rem);
-}
-
-.cardFace {
     display: grid;
     grid-template-rows: 20% 80%;
     place-items: center;
-    height: 100%;
-    width: auto;
+    place-content: center;
+    padding: 10px;
+}
+
+.card:focus,
+.card:active {
+    border: 2px solid blue;
+}
+
+.dogCard {
+    background: #F7C677;
+}
+
+.catCard {
+    background: #F8BCBB;
+}
+
+.card h2{
+    font-size: clamp(0.9rem, 0.8579rem + 0.2105vw, 1rem);
 }
 
 .breedName {
@@ -56,7 +52,7 @@
 }
 
 /* MODAL CONTENT STYLES */
-.cardsFacts {
+.cardFacts {
     display: grid;
     grid-template-rows: 0.5fr 0.5fr;
     grid-template-columns: 0.5fr 0.5fr;
@@ -66,37 +62,37 @@
     margin-bottom: 10px;
 }
 
-.cardsFactsTitle{
+.cardFactsTitle{
     text-align: center;
 }
 
-.cardsFactsTitle h3 {
+.cardFactsTitle h3 {
     font-size: clamp(0.9rem, 0.7316rem + 0.8421vw, 1.3rem);
 }
 
-.cardsFactsTitle p {
+.cardFactsTitle p {
     padding: 0;
     margin: 0;
     line-height: 0%;
 }
 
-.cardsFactsGroup h4 {
+.cardFactsGroup h4 {
     font-size: clamp(0.8rem, 0.6737rem + 0.6316vw, 1.1rem);
     text-decoration: underline;
     text-align: center;
 }
 
-.cardsFactsGroup p {
+.cardFactsGroup p {
     line-height: 50%;
     font-size: clamp(0.7rem, 0.6579rem + 0.2105vw, 0.8rem);
 }
 
-.cardsFactsGroup span {
+.cardFactsGroup span {
     font-weight: 700;
     font-size: 95%;
 }
 
-.cardsFactsGroup {
+.cardFactsGroup {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -118,7 +114,7 @@
 
 /* MEDIA QUERIES */
 @media (max-width: 1000px) {
-    .cards{
+    .card{
         width: 30vw;
     }
 
@@ -129,20 +125,20 @@
 }
 
 @media (max-width: 768px) {
-    .cardsFacts {
+    .cardFacts {
             grid-template-rows: repeat(4, 0.25fr);
             grid-template-columns: 1fr;
             place-items: center;
         }
 
-        .cardsFactsGroup {
+        .cardFactsGroup {
             width: 100%;
             text-align: center;
         }
 }
 
 @media (max-width: 620px) {
-    .cards {
+    .card {
         width: 40vw;
     }
 
@@ -153,7 +149,7 @@
 }
 
 @media (max-width: 450px) {
-    .cards {
+    .card {
         width: 80vw;
     }
 
