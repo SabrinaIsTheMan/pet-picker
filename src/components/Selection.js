@@ -15,7 +15,7 @@ function Selection( {handleTitleChange} ) {
                     <Link to="/dog" aria-label='Dog Button'>
                         <button
                             className="selectionButton dogButton"
-                            aria-label='Dog icon'
+                            aria-label='Dog Button'
                             value="Dog"
                             onClick={handleTitleChange}
                         >

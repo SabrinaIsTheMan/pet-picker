@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function HomeButton({ handleTitleChange }) {
 
     return (
-        <Link to="/" aria-label="Home">
+        <Link to="/" aria-label="Home Button">
             <button
                 className="homeButton button"
                 value="Pet"
