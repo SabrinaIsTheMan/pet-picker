@@ -77,94 +77,91 @@ function DogForm({handleSubmit}) {
             <form className="form dogForm" onSubmit={(event) => { handleSubmit(event, [barkValue, energyValue, shedValue, trainValue]) }}>
                 <legend>Filter dog breeds by:</legend>
 
-                {/* Barking */}
-                <fieldset>
-                    <input
-                        type="checkbox"
-                        name="barkCheck"
-                        id="barkCheck"
-                        checked={barkCheck}
-                        onChange={handleBarkCheck}
-                        aria-label="Barking Checkbox"
-                    />
-                    <label htmlFor="barkValue">Barking:</label>
-                    <input
-                        type="range"
-                        id="barkValue"
-                        name="barkValue"
-                        step="1" min="1" max="5"
-                        onChange={handleBarkChange}
-                        value={barkValue}
-                        disabled={!barkCheck}
-                    />
-                </fieldset>
+                <div className="fieldsets dogFieldsets">
+                    <fieldset>
+                        <input
+                            type="checkbox"
+                            name="barkCheck"
+                            id="barkCheck"
+                            checked={barkCheck}
+                            onChange={handleBarkCheck}
+                            aria-label="Barking Checkbox"
+                        />
+                        <label htmlFor="barkValue">Barking:</label>
+                        <input
+                            type="range"
+                            id="barkValue"
+                            name="barkValue"
+                            step="1" min="1" max="5"
+                            onChange={handleBarkChange}
+                            value={barkValue}
+                            disabled={!barkCheck}
+                        />
+                    </fieldset>
 
-                {/* Energy */}
-                <fieldset>
-                    <input
-                        type="checkbox"
-                        name="energyCheck"
-                        id="energyCheck"
-                        checked={energyCheck}
-                        onChange={handleEnergyCheck}
-                        aria-label="Energy Checkbox"
-                    />
-                    <label htmlFor="energyValue">Energy:</label>
-                    <input
-                        type="range"
-                        id="energyValue"
-                        name="energyValue"
-                        step="1" min="1" max="5"
-                        onChange={handleEnergyChange}
-                        value={energyValue}
-                        disabled={!energyCheck}
-                    />
-                </fieldset>
+                    <fieldset>
+                        <input
+                            type="checkbox"
+                            name="energyCheck"
+                            id="energyCheck"
+                            checked={energyCheck}
+                            onChange={handleEnergyCheck}
+                            aria-label="Energy Checkbox"
+                        />
+                        <label htmlFor="energyValue">Energy:</label>
+                        <input
+                            type="range"
+                            id="energyValue"
+                            name="energyValue"
+                            step="1" min="1" max="5"
+                            onChange={handleEnergyChange}
+                            value={energyValue}
+                            disabled={!energyCheck}
+                        />
+                    </fieldset>
 
-                {/* Shedding */}
-                <fieldset>
-                    <input
-                        type="checkbox"
-                        name="shedCheck"
-                        id="shedCheck"
-                        checked={shedCheck}
-                        onChange={handleShedCheck}
-                        aria-label="Sheeding Checkbox"
-                    />
-                    <label htmlFor="shedValue">Shedding:</label>
-                    <input
-                        type="range"
-                        id="shedValue"
-                        name="shedValue"
-                        step="1" min="1" max="5"
-                        onChange={handleShedChange}
-                        value={shedValue}
-                        disabled={!shedCheck}
-                    />
-                </fieldset>
+                    <fieldset>
+                        <input
+                            type="checkbox"
+                            name="shedCheck"
+                            id="shedCheck"
+                            checked={shedCheck}
+                            onChange={handleShedCheck}
+                            aria-label="Sheeding Checkbox"
+                        />
+                        <label htmlFor="shedValue">Shedding:</label>
+                        <input
+                            type="range"
+                            id="shedValue"
+                            name="shedValue"
+                            step="1" min="1" max="5"
+                            onChange={handleShedChange}
+                            value={shedValue}
+                            disabled={!shedCheck}
+                        />
+                    </fieldset>
 
-                {/* Trainability */}
-                <fieldset>
-                    <input
-                        type="checkbox"
-                        name="trainCheck"
-                        id="trainCheck"
-                        checked={trainCheck}
-                        onChange={handleTrainCheck}
-                        aria-label="Trainability Checkbox"
-                    />
-                    <label htmlFor="trainValue">Trainability:</label>
-                    <input
-                        type="range"
-                        id="trainValue"
-                        name="trainValue"
-                        step="1" min="1" max="5"
-                        onChange={handleTrainChange}
-                        value={trainValue}
-                        disabled={!trainCheck}
-                    />
-                </fieldset>
-
+                    <fieldset>
+                        <input
+                            type="checkbox"
+                            name="trainCheck"
+                            id="trainCheck"
+                            checked={trainCheck}
+                            onChange={handleTrainCheck}
+                            aria-label="Trainability Checkbox"
+                        />
+                        <label htmlFor="trainValue">Trainability:</label>
+                        <input
+                            type="range"
+                            id="trainValue"
+                            name="trainValue"
+                            step="1" min="1" max="5"
+                            onChange={handleTrainChange}
+                            value={trainValue}
+                            disabled={!trainCheck}
+                        />
+                    </fieldset>
+                </div>
                 <button type="Submit" className="dogButton">Submit</button>
             </form>
         </div>

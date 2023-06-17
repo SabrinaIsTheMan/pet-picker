@@ -21,11 +21,14 @@ function DogGallery({ handleTitleChange } ) {
     const[backDisabled, setBackDisabled] = useState(true);
     const[nextDisabled, setNextDisabled] = useState(false);
 
+    const [formText, setFormText] = useState("");
+
     const updateParams = (event, [barkValue, energyValue, shedValue, trainValue]) => {
         event.preventDefault();
 
         if (barkValue === null && energyValue === null && shedValue === null && trainValue === null) {
-            alert("Please pick at least one trait!")
+            setFormText("Please select at least one trait!");
+            setNextDisabled(true);
         }
         else {
             setBarkParam(barkValue);
@@ -94,9 +97,10 @@ function DogGallery({ handleTitleChange } ) {
         })
         .then((apiData) => {
             if (apiData.data.length === 0) {
-                alert("Please be less picky and try again!");
+                setFormText("Please be less picky and try again!");
             }
             else {
+                setFormText("");
                 setDogs(apiData.data);
             }
         })
@@ -114,51 +118,58 @@ function DogGallery({ handleTitleChange } ) {
 
                 <DogForm handleSubmit={updateParams} />
 
-                <p>Click on a breed to learn more!</p>
+                <p>Select a breed to learn more!</p>
 
                 <Pagination next={nextPage} back={backPage} backDisabled={backDisabled} nextDisabled={nextDisabled}/>
 
-                <ul className="galleryResults">
-                    {dogs.map((dogObj) => {
-                        return <DogCard
-                            key={dogObj.name}
-                            name={dogObj.name}
-                            imgSource={dogObj.image_link}
-                            altText={dogObj.name}
+                {
+                (formText !== "")
+                ?
+                    <div className="textResult">
+                        <p>{formText}</p>
+                    </div>
+                :
+                    <ul className="galleryResults">
+                        {dogs.map((dogObj) => {
+                            return <DogCard
+                                key={dogObj.name}
+                                name={dogObj.name}
+                                imgSource={dogObj.image_link}
+                                altText={dogObj.name}
 
-                            kids={dogObj.good_with_children}
-                            strangers={dogObj.good_with_strangers}
-                            others={dogObj.good_with_other_dogs}
+                                kids={dogObj.good_with_children}
+                                strangers={dogObj.good_with_strangers}
+                                others={dogObj.good_with_other_dogs}
 
-                            play={dogObj.playfulness}
-                            train={dogObj.trainability}
-                            energy={dogObj.energy}
-                            bark={dogObj.barking}
-                            protect={dogObj.protectiveness}
+                                play={dogObj.playfulness}
+                                train={dogObj.trainability}
+                                energy={dogObj.energy}
+                                bark={dogObj.barking}
+                                protect={dogObj.protectiveness}
 
-                            shed={dogObj.shedding}
-                            groom={dogObj.grooming}
-                            drool={dogObj.drooling}
-                            coat={dogObj.coat_length}
+                                shed={dogObj.shedding}
+                                groom={dogObj.grooming}
+                                drool={dogObj.drooling}
+                                coat={dogObj.coat_length}
 
-                            minYears={dogObj.min_life_expectancy}
-                            maxYears={dogObj.max_life_expectancy}
+                                minYears={dogObj.min_life_expectancy}
+                                maxYears={dogObj.max_life_expectancy}
 
-                            minHM={dogObj.min_height_male}
-                            maxHM={dogObj.max_height_male}
+                                minHM={dogObj.min_height_male}
+                                maxHM={dogObj.max_height_male}
 
-                            minHF={dogObj.min_height_female}
-                            maxHF={dogObj.max_height_female}
+                                minHF={dogObj.min_height_female}
+                                maxHF={dogObj.max_height_female}
 
-                            minWM={dogObj.min_weight_male}
-                            maxWM={dogObj.max_weight_male}
+                                minWM={dogObj.min_weight_male}
+                                maxWM={dogObj.max_weight_male}
 
-                            minWF={dogObj.min_weight_female}
-                            maxWF={dogObj.max_weight_female}
-                        />
-                    })
-                    }
-                </ul>
+                                minWF={dogObj.min_weight_female}
+                                maxWF={dogObj.max_weight_female}
+                            />
+                        })}
+                    </ul>
+                }
             </div>
         </section>
     )
