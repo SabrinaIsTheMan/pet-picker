@@ -5,19 +5,19 @@
     justify-content: center;
 }
 
-.gallery {
-    padding: 0 0 40px;
-}
-
 .galleryResults {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    margin: 40px 0;
+    margin: 40px 0 80px;
     gap: 20px;
 }
 
 p {
     font-style: italic;
+}
+
+.textResult {
+    padding: 80px 0;
 }
 
 /* MEDIA QUERIES */

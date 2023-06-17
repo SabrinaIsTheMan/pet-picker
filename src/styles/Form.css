@@ -1,6 +1,6 @@
 .form {
     background: #B9CBC6;
-    width: auto;
+    max-width: 100%;
     height: auto;
     text-align: center;
     padding: 10px 20px;
