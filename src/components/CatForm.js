@@ -61,71 +61,70 @@ function CatForm({ handleSubmit }) {
             <form className="form catForm" onSubmit={(event) => { handleSubmit(event, [groomValue, playValue, shedValue]) }}>
                 <legend>Filter cat breeds by:</legend>
 
-                {/* Intelligence */}
-                <fieldset>
-                    <input
-                        type="checkbox"
-                        name="groomCheck"
-                        id="groomCheck"
-                        checked={groomCheck}
-                        onChange={handleGroomCheck}
-                        aria-label="Grooming Checkbox"
-                    />
-                    <label htmlFor="groomValue">Grooming:</label>
-                    <input
-                        type="range"
-                        id="groomValue"
-                        name="groomValue"
-                        step="1" min="1" max="5"
-                        onChange={handleGroomChange}
-                        value={groomValue}
-                        disabled={!groomCheck}
-                    />
-                </fieldset>
+                <div className="fieldsets catFieldsets">
+                    <fieldset>
+                        <input
+                            type="checkbox"
+                            name="groomCheck"
+                            id="groomCheck"
+                            checked={groomCheck}
+                            onChange={handleGroomCheck}
+                            aria-label="Grooming Checkbox"
+                        />
+                        <label htmlFor="groomValue">Grooming:</label>
+                        <input
+                            type="range"
+                            id="groomValue"
+                            name="groomValue"
+                            step="1" min="1" max="5"
+                            onChange={handleGroomChange}
+                            value={groomValue}
+                            disabled={!groomCheck}
+                        />
+                    </fieldset>
 
-                {/* Playfulness */}
-                <fieldset>
-                    <input
-                        type="checkbox"
-                        name="playCheck"
-                        id="playCheck"
-                        checked={playCheck}
-                        onChange={handlePlayCheck}
-                        aria-label="Playfulness Checkbox"
-                    />
-                    <label htmlFor="playValue">Playfulness:</label>
-                    <input
-                        type="range"
-                        id="playValue"
-                        name="playValue"
-                        step="1" min="1" max="5"
-                        onChange={handlePlayChange}
-                        value={playValue}
-                        disabled={!playCheck}
-                    />
-                </fieldset>
+                    <fieldset>
+                        <input
+                            type="checkbox"
+                            name="playCheck"
+                            id="playCheck"
+                            checked={playCheck}
+                            onChange={handlePlayCheck}
+                            aria-label="Playfulness Checkbox"
+                        />
+                        <label htmlFor="playValue">Playfulness:</label>
+                        <input
+                            type="range"
+                            id="playValue"
+                            name="playValue"
+                            step="1" min="1" max="5"
+                            onChange={handlePlayChange}
+                            value={playValue}
+                            disabled={!playCheck}
+                        />
+                    </fieldset>
 
-                {/* Shedding */}
-                <fieldset>
-                    <input
-                        type="checkbox"
-                        name="shedCheck"
-                        id="shedCheck"
-                        checked={shedCheck}
-                        onChange={handleShedCheck}
-                        aria-label="Shedding Checkbox"
-                    />
-                    <label htmlFor="shedValue">Shedding:</label>
-                    <input
-                        type="range"
-                        id="shedValue"
-                        name="shedValue"
-                        step="1" min="1" max="5"
-                        onChange={handleShedChange}
-                        value={shedValue}
-                        disabled={!shedCheck}
-                    />
-                </fieldset>
+                    <fieldset>
+                        <input
+                            type="checkbox"
+                            name="shedCheck"
+                            id="shedCheck"
+                            checked={shedCheck}
+                            onChange={handleShedCheck}
+                            aria-label="Shedding Checkbox"
+                        />
+                        <label htmlFor="shedValue">Shedding:</label>
+                        <input
+                            type="range"
+                            id="shedValue"
+                            name="shedValue"
+                            step="1" min="1" max="5"
+                            onChange={handleShedChange}
+                            value={shedValue}
+                            disabled={!shedCheck}
+                        />
+                    </fieldset>
+                </div>
 
                 <button type="Submit" className="catButton">Submit</button>
             </form>

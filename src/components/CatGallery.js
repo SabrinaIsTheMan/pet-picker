@@ -20,11 +20,14 @@ function CatGallery( {handleTitleChange} ) {
     const [backDisabled, setBackDisabled] = useState(true);
     const [nextDisabled, setNextDisabled] = useState(false);
 
+    const [formText, setFormText] = useState("");
+
     const updateParams = (event, [groomValue, playValue, shedValue]) => {
         event.preventDefault();
 
         if (groomValue === null && playValue === null && shedValue === null) {
-            alert("Please pick at least one trait!")
+            setFormText("Please select at least one trait!");
+            setNextDisabled(true);
         }
         else {
             setGroomParam(groomValue);
@@ -90,9 +93,10 @@ function CatGallery( {handleTitleChange} ) {
         })
         .then((apiData) => {
             if (apiData.data.length === 0) {
-                alert("Please be less picky and try again!");
+                setFormText("Please be less picky and try again!");
             }
             else {
+                setFormText("");
                 setCats(apiData.data);
             }
         })
@@ -109,39 +113,47 @@ function CatGallery( {handleTitleChange} ) {
 
                 <CatForm handleSubmit={updateParams} />
 
-                <p>Click on a breed to learn more!</p>
+                <p>Select a breed to learn more!</p>
 
                 <Pagination next={nextPage} back={backPage} backDisabled={backDisabled} nextDisabled={nextDisabled} />
 
-                <ul className="galleryResults">
-                    {cats.map((catObj) => {
-                        return <CatCard
-                            key={catObj.name}
-                            name={catObj.name}
-                            imgSource={catObj.image_link}
-                            altText={catObj.name}
-                            origin={catObj.origin}
+                {
+                (formText !== "")
+                ?
+                    <div className="textResult">
+                        <p>{formText}</p>
+                    </div>
+                :
+                    <ul className="galleryResults">
+                        {cats.map((catObj) => {
+                            return <CatCard
+                                key={catObj.name}
+                                name={catObj.name}
+                                imgSource={catObj.image_link}
+                                altText={catObj.name}
+                                origin={catObj.origin}
 
-                            kids={catObj.children_friendly}
-                            fam={catObj.family_friendly}
-                            others={catObj.other_pets_friendly}
+                                kids={catObj.children_friendly}
+                                fam={catObj.family_friendly}
+                                others={catObj.other_pets_friendly}
 
-                            smart={catObj.intelligence}
-                            play={catObj.playfulness}
+                                smart={catObj.intelligence}
+                                play={catObj.playfulness}
 
-                            shed={catObj.shedding}
-                            groom={catObj.grooming}
+                                shed={catObj.shedding}
+                                groom={catObj.grooming}
 
-                            health={catObj.general_health}
-                            minYears={catObj.min_life_expectancy}
-                            maxYears={catObj.max_life_expectancy}
-                            length={catObj.length}
-                            minWeight={catObj.min_weight}
-                            maxWeight={catObj.max_weight}
-                        />
-                    })
-                    }
-                </ul>
+                                health={catObj.general_health}
+                                minYears={catObj.min_life_expectancy}
+                                maxYears={catObj.max_life_expectancy}
+                                length={catObj.length}
+                                minWeight={catObj.min_weight}
+                                maxWeight={catObj.max_weight}
+                            />
+                        })
+                        }
+                    </ul>
+                }
             </div>
         </section>
     )

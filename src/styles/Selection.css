@@ -1,8 +1,9 @@
-.selection .wrapper, .selectionButtons, .selectionButton{
+.selection .wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 40px 0;
 }
 
 .selection .wrapper p {
@@ -10,13 +11,21 @@
 }
 
 .selectionButtons {
-    padding: 0 0 40px;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: repeat(2, 50%);
+    gap: 10px;
 }
 
 /* MEDIA QUERIES */
-
 @media(max-width: 768px) {
     .selection .wrapper p {
         width: 90%;
+    }
+
+    .selectionButtons {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: (2, 50%);
     }
 }
