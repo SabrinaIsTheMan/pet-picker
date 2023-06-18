@@ -57,7 +57,7 @@ function CatCard(props) {
                         </div>
                     </div>
 
-                    <div className="cardsFactGroup">
+                    <div className="cardFactsGroup">
                         <h4>Personality Traits</h4>
                         <div className="cardsData">
                             <p><span>Intelligence:</span> {props.smart}/5</p>
@@ -66,7 +66,7 @@ function CatCard(props) {
 
                     </div>
 
-                    <div className="cardsFactGroup">
+                    <div className="cardFactsGroup">
                         <h4>Health</h4>
                         <div className="cardData">
                             <p><span>General Health:</span> {props.health}/5</p>
