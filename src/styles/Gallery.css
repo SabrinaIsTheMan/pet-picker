@@ -9,7 +9,7 @@
 .galleryResults {
     display: grid;
     grid-template-columns: repeat(4, 25%);
-    margin: 40px 0  0;
+    margin: 40px 0 80px;
     gap: 20px;
     place-content: center;
     place-items: stretch;
