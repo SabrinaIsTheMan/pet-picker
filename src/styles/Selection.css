@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     padding: 40px 0;
+    height: fit-content;
 }
 
 .selection .wrapper p {
@@ -26,6 +27,6 @@
     .selectionButtons {
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: (2, 50%);
+        grid-template-rows: repeat(2, 50%);
     }
 }

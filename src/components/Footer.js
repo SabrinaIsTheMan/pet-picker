@@ -1,13 +1,12 @@
 import '../styles/Footer.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaw } from '@fortawesome/free-solid-svg-icons';
 
 function Footer() {
     return (
     <div className="footer">
         <div className='wrapper'>
             <p>
-            <FontAwesomeIcon icon={faPaw} /> <a href="https://github.com/SabrinaIsTheMan" target="_blank" rel="noopener noreferrer">Coded</a> by <a href="https://sabrinaistheman.com" target="_blank" rel="noopener noreferrer">Sabrina</a> at <a href="https://junocollege.com/" target="_blank" rel="noopener noreferrer">Juno College</a> <FontAwesomeIcon icon={faPaw} /></p>
+                <a href="https://github.com/SabrinaIsTheMan" target="_blank" rel="noopener noreferrer">Coded</a> by <a href="https://sabrinaistheman.com" target="_blank" rel="noopener noreferrer">Sabrina</a> at <a href="https://junocollege.com/" target="_blank" rel="noopener noreferrer">Juno College</a>
+            </p>
         </div>
     </div>
     )
