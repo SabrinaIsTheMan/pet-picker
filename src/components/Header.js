@@ -3,8 +3,6 @@ import { faPaw } from '@fortawesome/free-solid-svg-icons';
 
 function Header(props) {
 
-    console.log(props);
-
     return (
         <div className="header">
             <div className='wrapper'>
