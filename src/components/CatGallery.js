@@ -63,7 +63,7 @@ function CatGallery( {handleTitleChange} ) {
 
         // check if next page (next offset of 20) returns an empty array - if so, disable next button
         axios("https://api.api-ninjas.com/v1/cats", {
-            headers: { 'X-Api-Key': 'pyRsnD63J96idmPN3crKQQ==l3yrXFvEvPGLif1K' },
+            headers: { 'X-Api-Key': process.env.REACT_APP_API_KEY },
             contentType: "application/json",
             params: {
                 grooming: groomParam,
