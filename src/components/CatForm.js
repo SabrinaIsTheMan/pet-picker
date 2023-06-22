@@ -8,7 +8,6 @@ function CatForm({ handleSubmit }) {
     const [groomCheck, setGroomCheck] = useState(true);
 
     const handleGroomChange = (event) => {
-        console.log(event.target.value);
         setGroomValue(event.target.value);
     }
 
