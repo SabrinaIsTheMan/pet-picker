@@ -6,6 +6,7 @@ import DogForm from './DogForm.js';
 import DogCard from './DogCard.js';
 import HomeButton from './HomeButton';
 import Pagination from './Pagination';
+import NoResults from './NoResults';
 
 function DogGallery({ handleTitleChange } ) {
 
@@ -121,53 +122,49 @@ function DogGallery({ handleTitleChange } ) {
 
                 <Pagination next={nextPage} back={backPage} backDisabled={backDisabled} nextDisabled={nextDisabled}/>
 
-                {
-                (formText !== "")
-                ?
-                    <div className="textResult">
-                        <p>{formText}</p>
-                    </div>
+                { (formText !== "")
+                ? <NoResults formText={formText} />
                 :
-                    <ul className="galleryResults">
-                        {dogs.map((dogObj) => {
-                            return <DogCard
-                                key={dogObj.name}
-                                name={dogObj.name}
-                                imgSource={dogObj.image_link}
-                                altText={dogObj.name}
+                <ul className="galleryResults">
+                    {dogs.map((dogObj) => {
+                        return <DogCard
+                            key={dogObj.name}
+                            name={dogObj.name}
+                            imgSource={dogObj.image_link}
+                            altText={dogObj.name}
 
-                                kids={dogObj.good_with_children}
-                                strangers={dogObj.good_with_strangers}
-                                others={dogObj.good_with_other_dogs}
+                            kids={dogObj.good_with_children}
+                            strangers={dogObj.good_with_strangers}
+                            others={dogObj.good_with_other_dogs}
 
-                                play={dogObj.playfulness}
-                                train={dogObj.trainability}
-                                energy={dogObj.energy}
-                                bark={dogObj.barking}
-                                protect={dogObj.protectiveness}
+                            play={dogObj.playfulness}
+                            train={dogObj.trainability}
+                            energy={dogObj.energy}
+                            bark={dogObj.barking}
+                            protect={dogObj.protectiveness}
 
-                                shed={dogObj.shedding}
-                                groom={dogObj.grooming}
-                                drool={dogObj.drooling}
-                                coat={dogObj.coat_length}
+                            shed={dogObj.shedding}
+                            groom={dogObj.grooming}
+                            drool={dogObj.drooling}
+                            coat={dogObj.coat_length}
 
-                                minYears={dogObj.min_life_expectancy}
-                                maxYears={dogObj.max_life_expectancy}
+                            minYears={dogObj.min_life_expectancy}
+                            maxYears={dogObj.max_life_expectancy}
 
-                                minHM={dogObj.min_height_male}
-                                maxHM={dogObj.max_height_male}
+                            minHM={dogObj.min_height_male}
+                            maxHM={dogObj.max_height_male}
 
-                                minHF={dogObj.min_height_female}
-                                maxHF={dogObj.max_height_female}
+                            minHF={dogObj.min_height_female}
+                            maxHF={dogObj.max_height_female}
 
-                                minWM={dogObj.min_weight_male}
-                                maxWM={dogObj.max_weight_male}
+                            minWM={dogObj.min_weight_male}
+                            maxWM={dogObj.max_weight_male}
 
-                                minWF={dogObj.min_weight_female}
-                                maxWF={dogObj.max_weight_female}
-                            />
-                        })}
-                    </ul>
+                            minWF={dogObj.min_weight_female}
+                            maxWF={dogObj.max_weight_female}
+                        />
+                    })}
+                </ul>
                 }
             </div>
         </section>
