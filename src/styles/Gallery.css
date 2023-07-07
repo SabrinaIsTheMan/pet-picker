@@ -20,7 +20,10 @@ p {
 }
 
 .textResult {
-    padding: 80px 0;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2.5px solid #84A59D;
+    margin: 80px 0;
 }
 
 /* MEDIA QUERIES */
