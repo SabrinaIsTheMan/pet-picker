@@ -106,7 +106,6 @@ function DogGallery({ handleTitleChange } ) {
         })
         .catch((error) => {
             alert("Something went wrong, please try again later.");
-            console.log(error);
         });
 
     }, [barkParam, energyParam, shedParam, trainParam, page]);

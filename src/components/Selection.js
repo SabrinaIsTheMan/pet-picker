@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 function Selection( {handleTitleChange} ) {
     return (
-        <div className="selection">
+        <section className="selection">
             <div className='wrapper'>
                 <h2>Which breed of dog or cat is right for you?</h2>
                 <p><em>Please remember that the data provided is for reference only. All pets come with their own personalities, quirks, and headaches (just like humans) - the best pet for you is the one that you love, and one that loves you back. Please consider checking out local shelters and rescues when looking for a pet. <strong>#AdoptDontShop</strong></em></p>
@@ -35,7 +35,7 @@ function Selection( {handleTitleChange} ) {
                     </Link>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 
