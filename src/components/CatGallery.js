@@ -6,6 +6,7 @@ import CatForm from './CatForm.js';
 import CatCard from './CatCard.js';
 import HomeButton from './HomeButton';
 import Pagination from './Pagination';
+import NoResults from './NoResults';
 
 function CatGallery( {handleTitleChange} ) {
 
@@ -116,12 +117,8 @@ function CatGallery( {handleTitleChange} ) {
 
                 <Pagination next={nextPage} back={backPage} backDisabled={backDisabled} nextDisabled={nextDisabled} />
 
-                {
-                (formText !== "")
-                ?
-                    <div className="textResult">
-                        <p>{formText}</p>
-                    </div>
+                {(formText !== "")
+                ? <NoResults formText={formText} />
                 :
                     <ul className="galleryResults">
                         {cats.map((catObj) => {
